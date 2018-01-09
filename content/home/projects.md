@@ -2,7 +2,7 @@
 # Projects widget.
 widget = "projects"
 active = true
-date = "2016-04-20T00:00:00"
+date = "2018-01-08T00:00:00"
 
 title = "Projects"
 subtitle = ""
@@ -33,12 +33,15 @@ filter_default = 0
   tag = "*"
 
 [[filter]]
-  name = "Deep Learning"
-  tag = ".deep-learning"
+  name = "python"
+  tag = ".python"
 
 [[filter]]
-  name = "Other"
-  tag = ".demo"
+  name = "pyqt"
+  tag = ".pyqt"
 
+[[filter]]
+  name = "notebooks"
+  tag = "notebooks"
 +++
 
