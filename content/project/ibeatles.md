@@ -45,52 +45,52 @@ bin are automatically fitted. Individual fitting parameters can be displayed as 
 For more infos, please check the [Characterization of Crystallographic Structure Using Bragg Edge Neutron Imaging at the Spallation
 Neutron Source, Journal of Imaging, 2017, 3, 65](http://www.mdpi.com/2313-433X/3/4/65/htm)
 
-
 <img src='/img/project/ibeatles/screen1.png' />
+During the first step, you load your data and open beams (OB). Thanks to iBeatles, you can compare live your Bragg
+edges with the theoretical values of an element of interest.
+<hr>
+
 <img src='/img/project/ibeatles/screen2.png' />
+You can also display the Bragg edges of one or more region of interest. Moving the region will update live the Bragg edges
+peaks.
+<hr>
+
 <img src='/img/project/ibeatles/screen3.png' />
+The data displayed on the right will come from the single, or multiple files, selected on the left side of the interface.
+<hr>
+
 <img src='/img/project/ibeatles/screen4.png' />
+The Time Spectra file loaded during the first step can be checked.
+<hr>
+
 <img src='/img/project/ibeatles/screen5.png' />
+It's possible to select the range of files to display by playing with the list on the left side of the interface, or
+by doing a direct selection on the bottom right plot.
+<hr>
+
 <img src='/img/project/ibeatles/screen6.png' />
+The fitting step allows you to lock any pixel to prevent the program from changing the previously calculated fitting
+parameters.
+<hr>
+
 <img src='/img/project/ibeatles/screen7.png' />
+All the fitting parameters values are displayed using a color scale background as well. This feature allows the user to
+quickly determine if a parameter value is way off, which mean that it's certainly wrong.
+<hr>
+
 <img src='/img/project/ibeatles/screen8.png' />
+It's possible to define an history of the fitting to perform.
+<hr>
+
 <img src='/img/project/ibeatles/screen9.png' />
+Sometimes, a pre-manipulation of the data is required, such as rotation of the sample. This can be done directly from
+the interface itself.
+<hr>
+
 <img src='/img/project/ibeatles/screen10.png' />
+In this step, the user defines the range of pixels to fit, and the size of each binning block.
+<hr>
+
 <img src='/img/project/ibeatles/screen11.png' />
-
-
-
-<html lang="en-us">
-<head>
-		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-        <script type='text/javascript' src='/unitegallery/js/unitegallery.min.js'></script>
-		<link rel='stylesheet' href='/unitegallery/css/unite-gallery.css' type='text/css' />
-		<script type='text/javascript' src='/unitegallery/themes/default/ug-theme-default.js'></script>
-		<link rel='stylesheet' href='/unitegallery/themes/default/ug-theme-default.css' type='text/css' />
-
-</head>
-<body>
-<div id="gallery" style="display:none;">
-
-			<img alt="Image 1 Title" src="/img/project/ibeatles/screen1.png"
-				data-image="/img/project/ibeatles/screen1.png"
-				data-description="Image 1 Description">
-
-			<img alt="Image 2 Title" src="/img/project/ibeatles/screen2.png"
-				data-image="/img/project/ibeatles/screen2.png
-				data-description="Image 2 Description">
-
-		</div>
-
-<script type="text/javascript">
-
-			jQuery(document).ready(function(){
-                jQuery("#gallery").unitegallery({
-		    		gallery_theme: "compact"
-    			});
-
-			});
-
-		</script>
-</body>
-</html>
+Screenshot showing the ROI tool that allows to select more than one region in order to display and compare the Bragg
+edges from several part of the same sample for example.

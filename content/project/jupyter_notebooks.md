@@ -3,7 +3,7 @@
 date = "2016-04-27"
 
 # Project title.
-title = "External Project"
+title = "Jupyter notebooks"
 
 # Project summary to display on homepage.
 summary = "An example of linking directly to an external project website using `external_link`."
@@ -16,7 +16,7 @@ image_preview = "boards.jpg"
 tags = ["demo"]
 
 # Optional external URL for project (replaces project detail page).
-external_link = "http://example.org"
+#external_link = "http://example.org"
 
 # Does the project detail page use math formatting?
 math = false
