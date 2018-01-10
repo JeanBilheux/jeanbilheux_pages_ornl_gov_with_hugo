@@ -42,6 +42,6 @@ filter_default = 0
 
 [[filter]]
   name = "notebooks"
-  tag = "notebooks"
+  tag = ".notebooks"
 +++
 
