@@ -65,7 +65,7 @@ defaultContentLanguageInSubdir = false
   office_hours = ""
   phone = "(865) 574 - 4637"
   skype = "jeanbilheux"
-  telegram = ""
+    telegram = ""
 
   # Enable Keybase in Contact widget by entering your keybase.io username.
   keybase = ""
@@ -224,6 +224,16 @@ defaultContentLanguageInSubdir = false
     icon = "github"
     icon_pack = "fa"
     link = "//github.com/jeanbilheux"
+
+  [[params.social]]
+    icon = "external-link"
+    icon_pack = "fa"
+    link = 'http://jbilheux.com'
+
+  [[params.social]]
+    icon = "linkedin"
+    icon_pack = "fa"
+    link = "https://www.linkedin.com/in/jean-christophe-bilheux-6ba26686/"
 
 # Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
