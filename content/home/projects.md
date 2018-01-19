@@ -43,5 +43,10 @@ filter_default = 0
 [[filter]]
   name = "notebooks"
   tag = ".notebooks"
+
+[[filter]]
+  name = "html"
+  tag = ".html"
+
 +++
 
