@@ -32,3 +32,8 @@ HTML("""
 And this will give a new style as shown here
 
 <img src='/img/posts/how_to_format_widget_in_notebook/customized_style.png' />
+
+{{% alert note %}}
+Thanks to Kynan for [the following post](https://stackoverflow.com/questions/32156248/how-do-i-set-custom-css-for-my-ipython-ihaskell-jupyter-notebook)
+ who helped me figuring out the solution
+{{% /alert %}}
