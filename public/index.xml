@@ -11,6 +11,40 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How to format the notebook widgets</title>
+      <link>/post/how_to_format_widget_in_notebook/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_format_widget_in_notebook/</guid>
+      <description>&lt;p&gt;When working with widgets inside a notebook, the default style looks like this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_format_widget_in_notebook/default_style.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to change its style, it&amp;rsquo;s possible to modify the CSS style sheet as followed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from IPython.core.display import HTML
+HTML(&amp;quot;&amp;quot;&amp;quot;
+&amp;lt;style&amp;gt;
+.mytext &amp;gt; .widget-label {
+    font-style: strong;
+    color: black;
+    font-size: 30px;
+}
+.mytext &amp;gt; input[type=&amp;quot;text&amp;quot;] {
+    font-size: 20px;
+    color: green;
+}
+&amp;lt;/style&amp;gt;
+&amp;quot;&amp;quot;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And this will give a new style as shown here&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_format_widget_in_notebook/customized_style.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Neutron Imaging Official Web Site</title>
       <link>/project/neutron_imaging_web_site/</link>
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
@@ -1379,45 +1413,6 @@ warnings.filterwarnings(‘ignore’)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/how_to_turn_off_notebook_warning/screen2.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>What my .gitignore file looks like</title>
-      <link>/post/my_gitignore_file/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/my_gitignore_file/</guid>
-      <description>&lt;p&gt;When working with notebooks and python projects, here is what my &lt;strong&gt;.gitignore&lt;/strong&gt; file looks like.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;__pycache__
-
-*.py[cod]
-
-.ipynb*
-.coverage
-/cover/*
-
-# mac
-.DS_Store
-
-.cache
-
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-MANIFEST
-
-# Unit test / coverage reports
-.coverage
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
