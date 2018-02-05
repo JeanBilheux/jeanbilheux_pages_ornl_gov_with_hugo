@@ -11,6 +11,43 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Neutron Imaging Official Web Site</title>
+      <link>/project/neutron_imaging_web_site/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/neutron_imaging_web_site/</guid>
+      <description>
+
+&lt;p&gt;Using &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework, I implemented the &lt;a href=&#34;https://neutronimaging.pages.ornl.gov&#34;&gt;
+Oak Ridge National Laboratory Neutron Imaging Web Site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+
+&lt;p&gt;Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before
+coming to the facility. We used to try to answer those questions by email. This present some issues:
+ * easy to miss some steps
+ * previous users coming to the beamline hesitate in contacting us again
+ * information we send can easily be out of date&lt;/p&gt;
+
+&lt;p&gt;So we decided to use centralize those information into a web site hosted by the Oak Ridge National Laboratory.&lt;/p&gt;
+
+&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
+
+&lt;p&gt;To implement this web site, I used the following tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework to built the web site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-learn/en&#34;&gt;Hugo learn theme&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm&lt;/a&gt; for the implementation of the web site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to create a movie from a stack of images</title>
       <link>/post/create_movie/</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
@@ -1381,64 +1418,6 @@ MANIFEST
 # Unit test / coverage reports
 .coverage
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>pytest trick to run script before and after each test</title>
-      <link>/post/pytest_trick/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/pytest_trick/</guid>
-      <description>&lt;p&gt;I recently had to write a set of unit test that required some code to be
-executed before* and after each test. I found  a few post that listed the wrong method name
-so here is how I did it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
-import unittest
-
-def setUp(self): 
-   _file_path = os.path.dirname(__file__)
-   self.data_path = os.path.abspath(os.path.join(_file_path, &#39;../data/&#39;))
-   self.export_folder = self.data_path + &#39;/temporary_folder/&#39;
-   os.mkdir(self.export_folder)
- 
-def tearDown(self):
-   shutil.rmtree(self.export_folder)
- 
-def test_export_create_the_right_file_name(self):
-&#39;&#39;&#39;assert export works for all data types for tif output&#39;&#39;&#39;
-
-  sample_path = self.data_path + &#39;/tif/sample&#39;
-  ob_path = self.data_path + &#39;/tif/ob&#39;
-  o_norm = Normalization()
-  o_norm.load(folder=sample_path)
-  o_norm.load(folder=ob_path, data_type=&#39;ob&#39;)
-  
-  # OB
-  o_norm.export(folder=self.export_folder, data_type=&#39;ob&#39;) 
-  _output_file_name_0 = o_norm._export_file_name[0]
- 
-  _file_name_0 = os.path.basename(o_norm.data[&#39;ob&#39;][&#39;file_name&#39;][0])
-  _new_file_name = os.path.splitext(_file_name_0)[0] + &#39;.tif&#39;  
-  _expected_file_name_0 = os.path.join(self.export_folder,   _new_file_name)
- 
-  self.assertTrue(_expected_file_name_0 == _output_file_name_0)
- 
-  # Normalized
-  o_norm.normalization()
-  o_norm.export(folder=self.export_folder, data_type=&#39;normalized&#39;)
-  _output_file_name_0 = o_norm._export_file_name[0]
- 
-  _file_name_0 = os.path.basename(o_norm.data[&#39;sample&#39;][&#39;file_name&#39;][0])
-  _new_file_name = &#39;normalized_&#39; + os.path.splitext(_file_name_0)[0] + &#39;.tif&#39;
-  _expected_file_name_0 = os.path.join(self.export_folder, _new_file_name)
-  self.assertTrue(_expected_file_name_0 == _output_file_name_0) 
- 
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The magic takes place in the &lt;strong&gt;setUp&lt;/strong&gt; and &lt;strong&gt;tearDown&lt;/strong&gt; methods.&lt;/p&gt;
 </description>
     </item>
     

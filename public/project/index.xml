@@ -7,8 +7,45 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 09 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jan 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="/project/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Neutron Imaging Official Web Site</title>
+      <link>/project/neutron_imaging_web_site/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/neutron_imaging_web_site/</guid>
+      <description>
+
+&lt;p&gt;Using &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework, I implemented the &lt;a href=&#34;https://neutronimaging.pages.ornl.gov&#34;&gt;
+Oak Ridge National Laboratory Neutron Imaging Web Site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+
+&lt;p&gt;Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before
+coming to the facility. We used to try to answer those questions by email. This present some issues:
+ * easy to miss some steps
+ * previous users coming to the beamline hesitate in contacting us again
+ * information we send can easily be out of date&lt;/p&gt;
+
+&lt;p&gt;So we decided to use centralize those information into a web site hosted by the Oak Ridge National Laboratory.&lt;/p&gt;
+
+&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
+
+&lt;p&gt;To implement this web site, I used the following tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework to built the web site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-learn/en&#34;&gt;Hugo learn theme&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm&lt;/a&gt; for the implementation of the web site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Bragg Edge User Interface (iBeatles)</title>
