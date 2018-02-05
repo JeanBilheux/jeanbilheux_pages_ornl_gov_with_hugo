@@ -19,7 +19,8 @@
   
   <meta name="description" content="When working with widgets inside a notebook, the default style looks like this
 In order to change its style, it&rsquo;s possible to modify the CSS style sheet as followed
-from IPython.core.display import HTML HTML(&quot;&quot;&quot; &lt;style&gt; .mytext &gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &gt; input[type=&quot;text&quot;] { font-size: 20px; color: green; } &lt;/style&gt; &quot;&quot;&quot;)  And this will give a new style as shown here">
+from IPython.core.display import HTML HTML(&quot;&quot;&quot; &lt;style&gt; .mytext &gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &gt; input[type=&quot;text&quot;] { font-size: 20px; color: green; } &lt;/style&gt; &quot;&quot;&quot;)  And this will give a new style as shown here
+Thanks to Kynan for the following post who helped me figuring out the solution">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/how_to_format_widget_in_notebook/">
@@ -79,7 +80,8 @@ from IPython.core.display import HTML HTML(&quot;&quot;&quot; &lt;style&gt; .myt
   <meta property="og:title" content="How to format the notebook widgets | Jean Bilheux">
   <meta property="og:description" content="When working with widgets inside a notebook, the default style looks like this
 In order to change its style, it&rsquo;s possible to modify the CSS style sheet as followed
-from IPython.core.display import HTML HTML(&quot;&quot;&quot; &lt;style&gt; .mytext &gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &gt; input[type=&quot;text&quot;] { font-size: 20px; color: green; } &lt;/style&gt; &quot;&quot;&quot;)  And this will give a new style as shown here">
+from IPython.core.display import HTML HTML(&quot;&quot;&quot; &lt;style&gt; .mytext &gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &gt; input[type=&quot;text&quot;] { font-size: 20px; color: green; } &lt;/style&gt; &quot;&quot;&quot;)  And this will give a new style as shown here
+Thanks to Kynan for the following post who helped me figuring out the solution">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-02-05T00:00:00-05:00">
@@ -351,6 +353,13 @@ HTML(&quot;&quot;&quot;
 
 <p><img src='/img/posts/how_to_format_widget_in_notebook/customized_style.png' /></p>
 
+<div class="alert alert-note">
+  <p>Thanks to Kynan for <a href="https://stackoverflow.com/questions/32156248/how-do-i-set-custom-css-for-my-ipython-ihaskell-jupyter-notebook" target="_blank">the following post</a>
+ who helped me figuring out the solution</p>
+
+</div>
+
+
       </div>
 
       
@@ -380,15 +389,15 @@ HTML(&quot;&quot;&quot;
   <h3>Related</h3>
   <ul>
     
-    <li><a href="/post/how_to_add_title_to_matplotlib_figure/">How to add a title to a matplotlib figure inside a notebook</a></li>
+    <li><a href="/post/how_to_trigger_single_notebook_widget_event/">How to trigger only 1 notebook widget dropdown event</a></li>
     
     <li><a href="/post/how_to_remove_notebook_warning/">How to turn off warnings in the notebooks</a></li>
     
-    <li><a href="/post/how_to_trigger_single_notebook_widget_event/">How to trigger only 1 notebook widget dropdown event</a></li>
-    
-    <li><a href="/post/target_tool_in_matplotlib/">Create a Target type tool in matplotlib</a></li>
+    <li><a href="/post/how_to_add_title_to_matplotlib_figure/">How to add a title to a matplotlib figure inside a notebook</a></li>
     
     <li><a href="/post/convert_notebooks_to_html_pages/">Automatically convert notebooks into html page for documentation using sphinx</a></li>
+    
+    <li><a href="/post/target_tool_in_matplotlib/">Create a Target type tool in matplotlib</a></li>
     
   </ul>
 </div>
