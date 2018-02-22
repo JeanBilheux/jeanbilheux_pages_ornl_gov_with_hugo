@@ -211,6 +211,10 @@ class ListRunsParser(object):
         print(str_runs)
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is the implementation of this tool in a notebook.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/list_of_int_parser/live_demo.gif&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     
