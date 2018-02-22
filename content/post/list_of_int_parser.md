@@ -210,3 +210,6 @@ class ListRunsParser(object):
 
 ```
 
+And here is the implementation of this tool in a notebook.
+
+<img src='/img/posts/list_of_int_parser/live_demo.gif' />

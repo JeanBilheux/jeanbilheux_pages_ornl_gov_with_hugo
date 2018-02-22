@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/list_of_int_parser/</loc>
+      <lastmod>2018-02-20T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/how_to_format_widget_in_notebook/</loc>
       <lastmod>2018-02-05T00:00:00-05:00</lastmod>
     </url>
@@ -348,6 +357,16 @@
     
     <url>
     
+      <loc>/tags/int/</loc>
+      <lastmod>2018-02-20T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/</loc>
       <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
@@ -400,6 +419,16 @@
     
       <loc>/tags/notebooks/</loc>
       <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/numpy/</loc>
+      <lastmod>2018-02-20T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
