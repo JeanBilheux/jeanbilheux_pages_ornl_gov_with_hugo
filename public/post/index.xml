@@ -11,6 +11,68 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Working with the histogram widget of pyqtgraph</title>
+      <link>/post/pyqtgraph_histogram/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/pyqtgraph_histogram/</guid>
+      <description>&lt;p&gt;The histogram tool on the side of the image coming for free with pyqtgraph is amazing. You can change or move the
+range but any refresh of the image reset the settings defined. Here is how you can fix those settings.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqtgraph_histogram/histogram_showing_issue.gif&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My main challenge has been to recover the &lt;strong&gt;id&lt;/strong&gt; of the histogram when not initializing this one myself. And here is
+the way&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+class MyPyqt(QMainWindow):
+
+    histogram_level = []
+
+    def __init__(self):
+        self.init_pyqtgraph()
+
+    def init_pyqtgraph(self):
+
+        # image view
+        self.ui.image_view = pg.ImageView()
+        self.ui.image_view.ui.menuBtn.hide()
+        self.ui.image_view.ui.roiBtn.hide()
+
+        ...
+
+
+    def refresh_image(self):
+
+        first_update = False
+        if self.histogram_level == []:
+            first_update = True
+
+        _histo_widget = self.ui.image_view.getHistogramWidget()
+        self.histogram_level = _histo_widget.getLevels()
+
+        # retrieve image data to display
+        index_selected = self.ui.file_index_slider.value()
+        _image = self.dict_data[&#39;list_data&#39;][index_selected-1]
+        _image = np.transpose(_image)
+        _image = self._clean_image(_image)
+        _image = self._force_range(_image)
+        self.current_image = _image
+        self.ui.image_view.setImage(_image)
+
+        if not first_update:
+            _histo_widget.setLevels(self.histogram_level[0], self.histogram_level[1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqtgraph_histogram/histogram_fixed.gif&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the full documentation of the histogram feature by going to the pyqtgraph documentation web page&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.pyqtgraph.org/documentation/graphicsItems/histogramlutitem.html&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#39;/img/posts/pyqtgraph_histogram/histo_doc.png&#39; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to handle a list of int and improve its display</title>
       <link>/post/list_of_int_parser/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 -0500</pubDate>
@@ -1514,45 +1576,6 @@ warnings.filterwarnings(‘ignore’)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/how_to_turn_off_notebook_warning/screen2.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>What my .gitignore file looks like</title>
-      <link>/post/my_gitignore_file/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/my_gitignore_file/</guid>
-      <description>&lt;p&gt;When working with notebooks and python projects, here is what my &lt;strong&gt;.gitignore&lt;/strong&gt; file looks like.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;__pycache__
-
-*.py[cod]
-
-.ipynb*
-.coverage
-/cover/*
-
-# mac
-.DS_Store
-
-.cache
-
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-MANIFEST
-
-# Unit test / coverage reports
-.coverage
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
