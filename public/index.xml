@@ -11,6 +11,95 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Keep Pan and Zoom of ImageView When Displaying New Image</title>
+      <link>/post/pyqtgraph_states/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/pyqtgraph_states/</guid>
+      <description>
+
+&lt;p&gt;The ImageViewer of pyqtgraph is amazing but comes with an annoying feature, the reset of the &lt;strong&gt;pan&lt;/strong&gt; and &lt;strong&gt;zoom&lt;/strong&gt;
+if you display a new image (as shown here)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqtgraph_states/before_saving_states.gif&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A couple of lines of codes need to be added in order to preserve those settings when switching image. Looks like
+nothing but it took me a couple of hours to figure it out so here it is with code before and after&lt;/p&gt;
+
+&lt;h3 id=&#34;definition-of-imageview&#34;&gt;Definition of ImageView&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    def init_pyqtgraph(self):
+        ...
+        area = DockArea()
+        area.setVisible(True)
+        d1 = Dock(&amp;quot;Sample Image&amp;quot;, size=(200, 300))
+        d2 = Dock(&amp;quot;Profile&amp;quot;, size=(200, 100))
+        d3 = Dock(&amp;quot;Water Intake&amp;quot;, size=(200, 400))
+
+        area.addDock(d1, &#39;top&#39;)
+        area.addDock(d2, &#39;bottom&#39;)
+        area.addDock(d3, &#39;right&#39;)
+
+        # image view
+        self.ui.image_view = pg.ImageView(view=pg.PlotItem())
+
+        self.ui.image_view.ui.menuBtn.hide()
+        self.ui.image_view.ui.roiBtn.hide()
+        ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then the part about the display of the images&lt;/p&gt;
+
+&lt;h3 id=&#34;before&#34;&gt;Before&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+    def refresh_image(self):
+        first_update = False
+        if self.histogram_level == []:
+            first_update = True
+        _histo_widget = self.ui.image_view.getHistogramWidget()
+        self.histogram_level = _histo_widget.getLevels()
+
+        index_selected = self.ui.file_index_slider.value()
+        _image = self.dict_data[&#39;list_data&#39;][index_selected-1]
+        _image = np.transpose(_image)
+        _image = self._clean_image(_image)
+        _image = self._force_range(_image)
+        self.current_image = _image
+        self.ui.image_view.setImage(_image)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;after&#34;&gt;After&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;    def refresh_image(self):
+
+        _view = self.ui.image_view.getView()
+        _view_box = _view.getViewBox()
+        _state = _view_box.getState()
+
+        first_update = False
+        if self.histogram_level == []:
+            first_update = True
+        _histo_widget = self.ui.image_view.getHistogramWidget()
+        self.histogram_level = _histo_widget.getLevels()
+
+        index_selected = self.ui.file_index_slider.value()
+        _image = self.dict_data[&#39;list_data&#39;][index_selected-1]
+        _image = np.transpose(_image)
+        _image = self._clean_image(_image)
+        _image = self._force_range(_image)
+        self.current_image = _image
+        self.ui.image_view.setImage(_image)
+        _view_box.setState(_state)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This allows to get the following behavior&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqtgraph_states/pyqtgraph_save_state.gif&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Working with the histogram widget of pyqtgraph</title>
       <link>/post/pyqtgraph_histogram/</link>
       <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
@@ -1517,38 +1606,6 @@ fig.tight_layout()
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_title_to_matplolib_figure/screen2.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to remove a file from git tracking</title>
-      <link>/post/remove_a_file_from_git_tracking/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/remove_a_file_from_git_tracking/</guid>
-      <description>&lt;p&gt;Let’s suppose you have a file you have been updated for a while (ex: .idea/workspace.xml)&lt;br /&gt;
-in your git repository but decided to remove it.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;You need to update your  &lt;em&gt;.gitignore&lt;/em&gt;  file and add this file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-buildoutcfg&#34;&gt;.idea/workspace.xml
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Remove all tracking files by cleaning the cached&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-buildoutcfg&#34;&gt;git rm -r –cached .
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;commit changes&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-buildoutcfg&#34;&gt;git add .
-
-git commit -m “Here it is”
-
-git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     
