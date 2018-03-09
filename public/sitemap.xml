@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>/post/gamma_filtering_method/</loc>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/post/create_conda_python_library/</loc>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/pyqtgraph_states/</loc>
       <lastmod>2018-03-05T00:00:00-05:00</lastmod>
     </url>
@@ -104,7 +122,7 @@
     
     <url>
     
-      <loc>/post/create_python_library/</loc>
+      <loc>/post/create_pip_python_library/</loc>
       <lastmod>2018-01-09T00:00:00-05:00</lastmod>
     </url>
     
@@ -305,6 +323,16 @@
     
     <url>
     
+      <loc>/tags/conda/</loc>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/documentation/</loc>
       <lastmod>2018-01-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
@@ -366,7 +394,7 @@
     <url>
     
       <loc>/tags/imaging/</loc>
-      <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -417,6 +445,26 @@
     
       <loc>/tags/movie/</loc>
       <lastmod>2018-01-18T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/neunorm/</loc>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/normalization/</loc>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -516,7 +564,7 @@
     <url>
     
       <loc>/tags/python/</loc>
-      <lastmod>2018-03-05T00:00:00-05:00</lastmod>
+      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     

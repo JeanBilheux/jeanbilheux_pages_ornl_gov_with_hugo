@@ -11,6 +11,161 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Gamma Filtering</title>
+      <link>/post/gamma_filtering_method/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/gamma_filtering_method/</guid>
+      <description>
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;When working with neutorn imaging files, one of the first thing we need to do is removing the gamma spots. Those
+spots are pixel that recorded gammas strikes, not neutrons strikes.&lt;/p&gt;
+
+&lt;p&gt;To do so, we are going to use the &lt;strong&gt;convolve&lt;/strong&gt; library from &lt;strong&gt;scipy&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;initialize-fake-data-set&#34;&gt;Initialize Fake Data Set&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+from scipy.ndimage import convolve
+
+# let&#39;s create a 10x10 random array of values between 0 and 1
+my_array = np.random.rand(10, 10)
+
+# let&#39;s fake a couple of gammas at [5, 5] and [7, 7]
+my_array[5, 5] = 10
+my_array[7, 7] = 9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/gamma_filtering/before_cleaning.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;cleaning&#34;&gt;Cleaning&lt;/h1&gt;
+
+&lt;p&gt;The principle is that we will look for all the pixels for which a fraction of their value (coefficient that can
+ be set) is still above the mean of the entire image. We will then replace those high counts pixels by the average value
+of all the pixels surrounding that pixel.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# threshold coefficient
+coefficient = 0.1
+
+mean_value = np.mean(my_array)
+indexes = np.where( coefficient * my_array &amp;gt; mean_value)
+
+mean_kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]]) / 8.0
+convolved_data = convolve(my_array, mean_kernel, mode=&#39;constant&#39;)
+
+cleaned_array = my_array.copy()
+cleaned_array[indexes] = convolved_data[indexes]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/gamma_filtering/after_cleaning.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to create a python library using conda</title>
+      <link>/post/create_conda_python_library/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/create_conda_python_library/</guid>
+      <description>&lt;p&gt;The goal of this post will be show you the minimum requirements to build a conda library.&lt;/p&gt;
+
+&lt;p&gt;The starting project will be a library I have been working on called &lt;a href=&#34;https://github.com/scikit-beam/NeuNorm&#34; target=&#34;_blank&#34;&gt;NeuNorm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First thing, create a folder &lt;strong&gt;conda-recipes&lt;/strong&gt; that will contain the files necessary to build the library.&lt;/p&gt;
+
+&lt;p&gt;In this folder, I created 2 files&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;conda_build_config.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python:
+  - 2.7
+  - 3.5
+  - 3.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;meta.yaml&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{% set version = &amp;quot;1.3.16&amp;quot; %}
+{% set git_rev = &amp;quot;1.3.16&amp;quot; %}
+
+package:
+  name: neunorm
+  version: {{ version }}
+
+source:
+  git_rev: {{ git_rev }}
+  git_url: https://github.com/scikit-beam/NeuNorm
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+#  noarch: python
+
+requirements:
+  build:
+    - python {{ python }}
+    - setuptools
+  run:
+    - python
+    - pillow
+    - numpy
+    - scipy
+    - pathlib
+    - astropy
+
+test:
+  imports:
+    - NeuNorm
+
+about:
+  home: https://github.com/scikit-beam/NeuNorm
+  license: BSD 3-Clause
+  summary: Neutron imaging normalization tool
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each new release, make sure you change the top version number.&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s build it by first going into that folder &lt;strong&gt;conda-recipes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;cd conda-recipes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;then&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;conda build .&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;p&gt;In order to upload your library to conda, you need to create an account in &lt;a href=&#34;https://anaconda.org/conda-forge&#34; target=&#34;_blank&#34;&gt;Anaconda cloud&lt;/a&gt;.
+In my case, I also created a &lt;strong&gt;organization&lt;/strong&gt; called &lt;strong&gt;neutronimaging&lt;/strong&gt;. I will use that &lt;em&gt;channel&lt;/em&gt; to upload my library.
+&lt;img src=&#39;/img/posts/create_conda_python_library/anaconda_cloud_group.png&#39; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;You simply need to follow the direction given by anaconda
+&amp;gt; anaconda upload /users/j35/anaconda/conda-bld/osx-64/neunorm-1.3.16-py* -u neutronimaging&lt;/p&gt;
+
+&lt;p&gt;Voila !&lt;/p&gt;
+
+&lt;p&gt;You will find your library in the anaconda cloud web site&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/create_conda_python_library/neunorm_library.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The instructions here are for the simplest case. For more complicated build, check &lt;a href=&#34;https://conda.io/docs/user-guide/tutorials/build-pkgs.html&#34; target=&#34;_blank&#34;&gt;the anaconda documentation&lt;/a&gt;
+or the following tutorial by &lt;a href=&#34;https://github.com/wigging/python-package&#34; target=&#34;_blank&#34;&gt;Gavin Wiggins&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Big thanks to Jiao Lin for showing me how to do it, step by step.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Keep Pan and Zoom of ImageView When Displaying New Image</title>
       <link>/post/pyqtgraph_states/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 -0500</pubDate>
@@ -1314,10 +1469,10 @@ clicking the &lt;strong&gt;GitHub&lt;/strong&gt; button in the menu, on the left
     
     <item>
       <title>How to create a python library using pip</title>
-      <link>/post/create_python_library/</link>
+      <link>/post/create_pip_python_library/</link>
       <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
       
-      <guid>/post/create_python_library/</guid>
+      <guid>/post/create_pip_python_library/</guid>
       <description>
 
 &lt;p&gt;I have been working on a small project that allows to calculate the radial profile of an image for a given angular range.
@@ -1482,130 +1637,6 @@ will need to use those local files.&lt;/p&gt;
     _tof_obj = TOF(filename = _tof_file)
     ...
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bragg Edge User Interface (iBeatles)</title>
-      <link>/project/ibeatles/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/ibeatles/</guid>
-      <description>&lt;p&gt;Several wavelength-dependent proof-of-concept imaging measurements have been performed at the Spallation Neutron
-Source (SNS) VULCAN and SNAP beam lines. This effort is focused on prototyping imaging software for the future SNS
-VENUS imaging beam line. One of the time- of-flight (TOF) techniques that is of interest to the scientific community
-is the 2-dimensional mapping of phases and average crystalline plane orientation in samples ex-situ, but also during
-applied stresses such as tensile loading and heating. This technique is known as Bragg edge imaging and relies on the
-identification of changes of transmission values, fitting of the edge to measure its displacement, and thus identify
-the shift in lattice parameter due to stresses.&lt;/p&gt;
-
-&lt;p&gt;We are implementing these Bragg edge tools using Python in an effort to provide near real-time feedback during an
-experiment. A Python library was written to quickly calculate the values of Bragg edges (in the strain-free material)
- for a series of selected crystalline materials. Data in a form of a series of wavelength-dependent radiographs,
- obtained with an micro-channel-plate (MCP) detector, can be quickly loaded using this PyQt User Interface (UI).&lt;/p&gt;
-
-&lt;p&gt;Data can be normalized, region of sample can be selected and bin size defined. Then the signal for each particular
-bin are automatically fitted. Individual fitting parameters can be displayed as well as the strain mapping of the sample.&lt;/p&gt;
-
-&lt;p&gt;For more infos, please check the &lt;a href=&#34;http://www.mdpi.com/2313-433X/3/4/65/htm&#34; target=&#34;_blank&#34;&gt;Characterization of Crystallographic Structure Using Bragg Edge Neutron Imaging at the Spallation
-Neutron Source, Journal of Imaging, 2017, 3, 65&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen1.png&#39; /&gt;
-During the first step, you load your data and open beams (OB). Thanks to iBeatles, you can compare live your Bragg
-edges with the theoretical values of an element of interest.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen2.png&#39; /&gt;
-You can also display the Bragg edges of one or more region of interest. Moving the region will update live the Bragg edges
-peaks.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen3.png&#39; /&gt;
-The data displayed on the right will come from the single, or multiple files, selected on the left side of the interface.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen4.png&#39; /&gt;
-The Time Spectra file loaded during the first step can be checked.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen5.png&#39; /&gt;
-It&amp;rsquo;s possible to select the range of files to display by playing with the list on the left side of the interface, or
-by doing a direct selection on the bottom right plot.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen6.png&#39; /&gt;
-The fitting step allows you to lock any pixel to prevent the program from changing the previously calculated fitting
-parameters.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen7.png&#39; /&gt;
-All the fitting parameters values are displayed using a color scale background as well. This feature allows the user to
-quickly determine if a parameter value is way off, which mean that it&amp;rsquo;s certainly wrong.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen8.png&#39; /&gt;
-It&amp;rsquo;s possible to define an history of the fitting to perform.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen9.png&#39; /&gt;
-Sometimes, a pre-manipulation of the data is required, such as rotation of the sample. This can be done directly from
-the interface itself.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen10.png&#39; /&gt;
-In this step, the user defines the range of pixels to fit, and the size of each binning block.
-&lt;hr&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen11.png&#39; /&gt;
-Screenshot showing the ROI tool that allows to select more than one region in order to display and compare the Bragg
-edges from several part of the same sample for example.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to add a title to a matplotlib figure inside a notebook</title>
-      <link>/post/how_to_add_title_to_matplotlib_figure/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/how_to_add_title_to_matplotlib_figure/</guid>
-      <description>&lt;p&gt;By default, matplotlib only provides an increment index to the figure title as shown here&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_file_name = _files[index]
-fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5))
-
-#plt.title(os.path.basename(_files[index]))
-cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax0.set_title(&amp;quot;Before Correction&amp;quot;)
-_ = fig.colorbar(cax0, ax=ax0) # colorbar
-
-cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax1.set_title(&amp;quot;After Correction&amp;quot;)
-_ = fig.colorbar(cax1, ax=ax1) # colorbar
-
-fig.tight_layout()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_title_to_matplolib_figure/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In order to provide a title to this plot, simply add a value to the flag &lt;strong&gt;num&lt;/strong&gt; in &lt;strong&gt;plt.subplots&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_file_name = _files[index]
-fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5),
-                               num=os.path.basename(_file_name))
-
-#plt.title(os.path.basename(_files[index]))
-cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax0.set_title(&amp;quot;Before Correction&amp;quot;)
-_ = fig.colorbar(cax0, ax=ax0) # colorbar
-
-cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax1.set_title(&amp;quot;After Correction&amp;quot;)
-_ = fig.colorbar(cax1, ax=ax1) # colorbar
-
-fig.tight_layout()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_title_to_matplolib_figure/screen2.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     

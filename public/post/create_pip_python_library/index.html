@@ -17,14 +17,11 @@
       
     
   
-  <meta name="description" content="I&rsquo;m going to show you here how you can easily create an HTML document from a notebook.
-1 - First thing you need is make sure your notebook has a title
-# this is my title  Then, make sure that all the other headings of the notebooks have a lower hierarchy.
-2 - Then you will need to import the following python libraries
-&gt; pip install sphinx &gt; pip install nbconvert &gt; pip install pandoc &gt; pip install latex &gt; pip install nbsphinx  Somehow, I had to use conda for the pandoc library to work.">
+  <meta name="description" content="I have been working on a small project that allows to calculate the radial profile of an image for a given angular range. We are not interested in this post about the functionality of the library itself, but in case you are curious, here is where you can find the source code SectorizedRadialProfile.
+I, first, ned to mention that the code is fully documented using sphinx and fully unit tested using pytest.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/convert_notebooks_to_html_pages/">
+  <link rel="alternate" hreflang="en-us" href="/post/create_pip_python_library/">
 
   
 
@@ -72,18 +69,15 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/convert_notebooks_to_html_pages/">
+  <link rel="canonical" href="/post/create_pip_python_library/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Jean Bilheux">
-  <meta property="og:url" content="/post/convert_notebooks_to_html_pages/">
-  <meta property="og:title" content="Automatically convert notebooks into html page for documentation using sphinx | Jean Bilheux">
-  <meta property="og:description" content="I&rsquo;m going to show you here how you can easily create an HTML document from a notebook.
-1 - First thing you need is make sure your notebook has a title
-# this is my title  Then, make sure that all the other headings of the notebooks have a lower hierarchy.
-2 - Then you will need to import the following python libraries
-&gt; pip install sphinx &gt; pip install nbconvert &gt; pip install pandoc &gt; pip install latex &gt; pip install nbsphinx  Somehow, I had to use conda for the pandoc library to work.">
+  <meta property="og:url" content="/post/create_pip_python_library/">
+  <meta property="og:title" content="How to create a python library using pip | Jean Bilheux">
+  <meta property="og:description" content="I have been working on a small project that allows to calculate the radial profile of an image for a given angular range. We are not interested in this post about the functionality of the library itself, but in case you are curious, here is where you can find the source code SectorizedRadialProfile.
+I, first, ned to mention that the code is fully documented using sphinx and fully unit tested using pytest.">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-01-09T00:00:00-05:00">
@@ -93,7 +87,7 @@
 
   
 
-  <title>Automatically convert notebooks into html page for documentation using sphinx | Jean Bilheux</title>
+  <title>How to create a python library using pip | Jean Bilheux</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" class="dark">
@@ -253,7 +247,7 @@
 
   <div class="article-container">
     <div class="article-inner">
-      <h1 itemprop="name">Automatically convert notebooks into html page for documentation using sphinx</h1>
+      <h1 itemprop="name">How to create a python library using pip</h1>
 
       
 
@@ -287,35 +281,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Automatically%20convert%20notebooks%20into%20html%20page%20for%20documentation%20using%20sphinx&amp;url=%2fpost%2fconvert_notebooks_to_html_pages%2f"
+         href="https://twitter.com/intent/tweet?text=How%20to%20create%20a%20python%20library%20using%20pip&amp;url=%2fpost%2fcreate_pip_python_library%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fconvert_notebooks_to_html_pages%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fcreate_pip_python_library%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fconvert_notebooks_to_html_pages%2f&amp;title=Automatically%20convert%20notebooks%20into%20html%20page%20for%20documentation%20using%20sphinx"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fcreate_pip_python_library%2f&amp;title=How%20to%20create%20a%20python%20library%20using%20pip"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fconvert_notebooks_to_html_pages%2f&amp;title=Automatically%20convert%20notebooks%20into%20html%20page%20for%20documentation%20using%20sphinx"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fcreate_pip_python_library%2f&amp;title=How%20to%20create%20a%20python%20library%20using%20pip"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Automatically%20convert%20notebooks%20into%20html%20page%20for%20documentation%20using%20sphinx&amp;body=%2fpost%2fconvert_notebooks_to_html_pages%2f">
+         href="mailto:?subject=How%20to%20create%20a%20python%20library%20using%20pip&amp;body=%2fpost%2fcreate_pip_python_library%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -329,129 +323,130 @@
 
 
       <div class="article-style" itemprop="articleBody">
-        <p>I&rsquo;m going to show you here how you can easily create an HTML document from a notebook.</p>
+        
 
-<p>1 - First thing you need is make sure your notebook has a title</p>
+<p>I have been working on a small project that allows to calculate the radial profile of an image for a given angular range.
+We are not interested in this post about the functionality of the library itself, but in case you are curious, here
+is where you can find the source code <a href="https://github.com/JeanBilheux/SectorizedRadialProfile" target="_blank">SectorizedRadialProfile</a>.</p>
 
-<pre><code class="language-python"># this is my title
+<p>I, first, ned to mention that the code is fully documented using <a href="https://pypi.python.org/pypi/Sphinx" target="_blank">sphinx</a> and fully
+unit tested using <a href="https://pypi.python.org/pypi/pytest" target="_blank">pytest</a>.</p>
+
+<p>I learned to create packages using the well documented [python packaging user guide[(<a href="https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing" target="_blank">https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing</a>),
+but I still decided to make this short tutorial in order to quickly remind me the key points.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>First you need to install <strong>twine</strong></p>
+
+<pre><code>&gt; pip install twine
 </code></pre>
 
-<p>Then, make sure that all the other headings of the notebooks have a lower hierarchy.</p>
+<h2 id="configuring-the-project">configuring the project</h2>
 
-<p><img src='/img/posts/convert_notebooks_to_html_pages/screen1.png' /></p>
+<p><strong>setup.py</strong></p>
 
-<p>2 - Then you will need to import the following python libraries</p>
+<p>This is a very important file. This is where you define the metadata of your project. For this project, here is my
+<em>setup.py</em> file</p>
 
-<pre><code>&gt; pip install sphinx
-&gt; pip install nbconvert
-&gt; pip install pandoc
-&gt; pip install latex
-&gt; pip install nbsphinx
+<pre><code class="language-python">#!/usr/bin/env python
+from setuptools import setup, find_packages
+
+setup(
+    name = &quot;sectorizedradialprofile&quot;,
+    version = &quot;1.0.0&quot;,
+    author = &quot;Jean Bilheux&quot;,
+    author_email = &quot;bilheuxjm@ornl.gov&quot;,
+    packages = find_packages(exclude=['tests', 'notebooks']),
+    include_package_data = True,
+    test_suite = 'tests',
+    install_requires = [
+        'numpy',
+        'pyfits',
+        'pillow',
+    ],
+    dependency_links = [
+    ],
+    description = &quot;Radial profile of a given sector of an 2D array&quot;,
+    license = 'BSD',
+    keywords = &quot;tiff tif profile radial sector&quot;,
+    url = &quot;https://github.com/JeanBilheux/SectorizedRadialProfile&quot;,
+    classifiers = ['Development Status :: 3 - Alpha',
+                   'Topic :: Scientific/Engineering :: Physics',
+                   'Intended Audience :: Developers',
+                   'Programming Language :: Python :: 2.7',
+                   'Programming Language :: Python :: 3.5'],
+)
+
+# End of file
 </code></pre>
 
-<div class="alert alert-note">
-  <p>Somehow, I had to use conda for the <strong>pandoc</strong> library to work.</p>
+<p><strong>setup.cfg</strong></p>
 
-</div>
+<p>This file contains the default option for <em>setup.py</em></p>
 
+<pre><code class="language-python">[bdist_wheel]
+universal=1
 
-<pre><code>&gt; conda install pandoc
+[bdist]
+formats=rpm
 </code></pre>
 
-<p>3 -  Move your notebooks into the source folder, next to the <em>index.rst</em> file for example</p>
+<p><strong>README.rst</strong></p>
 
-<p>4 -  Modify the <em>index.rst</em> by adding the name of the notebooks to display</p>
+<p>This is usually where the user will go first to learn how to use your library, so there is important.</p>
 
-<p><img src='/img/posts/convert_notebooks_to_html_pages/screen2.png' /></p>
+<p><img src='/img/posts/create_python_library/screen1.png' /></p>
 
-<div class="alert alert-note">
-  <p>This example is based on the <a href="https://github.com/ornlneutronimaging/NeuNorm" target="_blank">NeuNorm</a> project.</p>
+<p><strong>MANIFEST.in</strong></p>
 
-</div>
+<p>This is where you define the library needed by your package. In this project, I only needed <em>numpy</em> but I still left
+this empty, leaving it up to the user to install it on its own.</p>
 
+<h2 id="packaging-the-project">Packaging the project</h2>
 
-<p>5 - Let&rsquo;s now modify the <strong>conf.py</strong> file</p>
-
-<pre><code>extensions = ['sphinx.ext.autodoc',
-              'nbsphinx',
-              'sphinx.ext.mathjax',
-              'sphinx.ext.githubpages',
-              'IPython.sphinxext.ipython_console_highlighting
-
-...
-
-source_suffix = ['.rst', '.ipynb']
+<pre><code>&gt; python setup.py sdist
+&gt; python setup.py bdist_wheel --universal
 </code></pre>
 
-<p>6 - Everything we did so far now allows us to insert the notebook inside the documentation, but only locally. To
-make it work via <em>ReadTheDocs</em>, we need the next step describes here.</p>
-
-<p>Create a <strong>readthedocs.yml</strong> file into our source tree</p>
-
-<pre><code># REad the Docs config
-
-# python version
-python:
-  version: 3.5
-  pip_install: True
-
-# build a PDF
-formats:
-  - none
-
-# use a conda environment file
-conda:
-  file: documentation/readthedocs-environment.yml
-</code></pre>
-
-<p>And then, add another file called <strong>readthedocs-environments.yml</strong> inside our documentation folder</p>
-
-<pre><code>name: NeuNorm
-channels:
-  - conda-forge
-dependencies:
-  - python==3.5
-  - pandoc
-  - nbformat
-  - jupyter_client
-  - ipython
-  - nbconvert
-  - sphinx&gt;=1.5.1
-  - ipykernel
-  - sphinx_rtd_theme
-  - pip:
-    - nbsphinx
-</code></pre>
-
-<p>7 - Let&rsquo;s change the <em>Admin</em> settings in ReadTheDocs as followed</p>
+<h2 id="upload-the-distribution">Upload the distribution</h2>
 
 <ol>
-<li><p>Go to <strong>Advanced Settings</strong> of <strong>Admin</strong> menu.</p></li>
+<li><p>First, we needt to get a <a href="https://pypi.python.org/pypi?%3Aaction=register_form" target="_blank">PyPi user account</a>.</p></li>
 
-<li><p>Specify the name of the python configuration file</p>
-
-<pre><code>documentation/source/conf.py
-</code></pre></li>
-
-<li><p>and also the python interpreter</p>
-
-<pre><code>CPython 3.x
-</code></pre></li>
+<li><p>We can then upload the distribution</p></li>
 </ol>
 
-<p>8 - Now, let&rsquo;s build the documentation</p>
-
-<pre><code>&gt; python3 -m sphinx shource build
-&gt; make html
+<pre><code>&gt; twine upload dist/*
 </code></pre>
 
-<p>and here is the local documentation produced</p>
+<p><img src='/img/posts/create_python_library/screen2.png' /></p>
 
-<p><img src='/img/posts/convert_notebooks_to_html_pages/screen3.png' /></p>
+<p>and voila !</p>
 
-<p>and here is the ReadTheDocs documentation created</p>
+<p>Your package is now available on PyPi and can be installed using pip</p>
 
-<p><img src='/img/posts/convert_notebooks_to_html_pages/screen4.png' /></p>
+<pre><code>&gt; pip install sectorizedradialprofile
+</code></pre>
+
+<p><img src='/img/posts/create_python_library/screen3.png' /></p>
+
+<h2 id="sum-up">Sum up</h2>
+
+<p>To sumarize, and using a tag version this time</p>
+
+<pre><code>&gt; git tag X.Y.Z -m &quot;Relase X.Y.Z.&quot;
+&gt; git push --tags
+</code></pre>
+
+<p>and then</p>
+
+<pre><code>&gt; pip install --upgrade twine wheel
+&gt; python setup.py sdist bdist_wheel --universal
+&gt; twine upload dist/*
+</code></pre>
+
+<p>(Thank you to <a href="https://dbader.org/" target="_blank">Dan Bader</a> for this final shortcut tip!)</p>
 
       </div>
 
@@ -460,15 +455,9 @@ dependencies:
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/notebook">notebook</a>
-  
   <a class="btn btn-primary btn-outline" href="/tags/python">python</a>
   
-  <a class="btn btn-primary btn-outline" href="/tags/html">html</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/jupyter">jupyter</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/sphinx">sphinx</a>
+  <a class="btn btn-primary btn-outline" href="/tags/pip">pip</a>
   
 </div>
 
@@ -486,15 +475,15 @@ dependencies:
   <h3>Related</h3>
   <ul>
     
+    <li><a href="/post/create_doi/">How to create a DOI linked to any python library</a></li>
+    
     <li><a href="/post/target_tool_in_matplotlib/">Create a Target type tool in matplotlib</a></li>
     
-    <li><a href="/post/my_gitignore_file/">What my .gitignore file looks like</a></li>
+    <li><a href="/post/getting_started_with_pyqt_applications/">Getting started with PyQt applications</a></li>
     
-    <li><a href="/post/how_to_trigger_single_notebook_widget_event/">How to trigger only 1 notebook widget dropdown event</a></li>
+    <li><a href="/post/call_local_file_in_unit_test/">Use of local file in unit test</a></li>
     
-    <li><a href="/post/how_to_add_title_to_matplotlib_figure/">How to add a title to a matplotlib figure inside a notebook</a></li>
-    
-    <li><a href="/post/how_to_remove_notebook_warning/">How to turn off warnings in the notebooks</a></li>
+    <li><a href="/post/convert_notebooks_to_html_pages/">Automatically convert notebooks into html page for documentation using sphinx</a></li>
     
   </ul>
 </div>
