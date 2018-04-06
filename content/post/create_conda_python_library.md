@@ -82,6 +82,7 @@ In my case, I also created a **organization** called **neutronimaging**. I will 
 {{% /alert %}}
 
 You simply need to follow the direction given by anaconda
+
 > anaconda upload /users/j35/anaconda/conda-bld/osx-64/neunorm-1.3.16-py* -u neutronimaging
 
 Voila !
