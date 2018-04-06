@@ -149,8 +149,11 @@ In my case, I also created a &lt;strong&gt;organization&lt;/strong&gt; called &l
 &lt;/div&gt;
 
 
-&lt;p&gt;You simply need to follow the direction given by anaconda
-&amp;gt; anaconda upload /users/j35/anaconda/conda-bld/osx-64/neunorm-1.3.16-py* -u neutronimaging&lt;/p&gt;
+&lt;p&gt;You simply need to follow the direction given by anaconda&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;anaconda upload /users/j35/anaconda/conda-bld/osx-64/neunorm-1.3.16-py* -u neutronimaging&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Voila !&lt;/p&gt;
 
