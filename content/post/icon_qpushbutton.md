@@ -37,3 +37,9 @@ my_button.setStyleSheet("background-image: url('/Users/j35/Desktop/button_rotati
 ```
 
 <img src='/img/posts/icon_qpushbutton/button_method2.png' />
+
+### Source
+
+ * [stackOverflow](https://stackoverflow.com/questions/36714078/pyqt4-how-to-make-icon-bigger-than-qpushbutton-pixmap-buttons)
+ * [QIcon documentation](http://pyqt.sourceforge.net/Docs/PyQt4/qicon.html)
+ * [StyleSheet examples with QPushButton](http://doc.qt.io/archives/qt-4.8/stylesheet-examples.html)
