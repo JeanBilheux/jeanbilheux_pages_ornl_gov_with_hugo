@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/icon_qpushbutton/</loc>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/gamma_filtering_method/</loc>
       <lastmod>2018-03-09T00:00:00-05:00</lastmod>
     </url>
@@ -353,6 +362,16 @@
     
     <url>
     
+      <loc>/tags/gui/</loc>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/git/</loc>
       <lastmod>2018-01-08T00:00:00-05:00</lastmod>
       <priority>0</priority>
@@ -534,7 +553,7 @@
     <url>
     
       <loc>/tags/pyqt/</loc>
-      <lastmod>2018-01-12T00:00:00-05:00</lastmod>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -564,7 +583,17 @@
     <url>
     
       <loc>/tags/python/</loc>
-      <lastmod>2018-03-09T00:00:00-05:00</lastmod>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/qpushbutton/</loc>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     

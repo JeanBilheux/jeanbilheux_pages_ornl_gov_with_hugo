@@ -11,6 +11,45 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How to customize QPushButton Icons</title>
+      <link>/post/icon_qpushbutton/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/icon_qpushbutton/</guid>
+      <description>
+
+&lt;p&gt;For one of my project I had to display a customized push button. I found a couple of ways to do this.&lt;/p&gt;
+
+&lt;p&gt;The goal is to display the following icon inside a QPushButton.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_rotation_left.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;using-qtgui-qicon&#34;&gt;Using QtGui.QIcon&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s pretend our image is at &lt;em&gt;/Users/j35/Desktop/button_rotation_left.png&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_icon = QtGui.QIcon(&amp;quot;/Users/j35/Desktop/button_rotation_left.png&amp;quot;)
+my_button = QtGui.QPushButton()
+my_button.setIcon(_icon)
+my_button.setIconSize(QtCore.QSize(50, 300))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method1.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem of using this way, is that the button looses its &lt;strong&gt;push button&lt;/strong&gt; feature that changes the look of the
+button when the user click it.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-stylesheet&#34;&gt;Using StyleSheet&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;my_button = QtGui.QPushButton()
+my_button.setStyleSheet(&amp;quot;background-image: url(&#39;/Users/j35/Desktop/button_rotation_left.png&#39;); background-repeat: no-repeat&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method2.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Gamma Filtering</title>
       <link>/post/gamma_filtering_method/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
@@ -1600,46 +1639,6 @@ this empty, leaving it up to the user to install it on its own.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;(Thank you to &lt;a href=&#34;https://dbader.org/&#34; target=&#34;_blank&#34;&gt;Dan Bader&lt;/a&gt; for this final shortcut tip!)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Use of local file in unit test</title>
-      <link>/post/call_local_file_in_unit_test/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/call_local_file_in_unit_test/</guid>
-      <description>&lt;p&gt;I had some issue in one of my project when running my unit test from the command line and from my IDE. I could never
-have both happy at the same time. This was related to the way I was calling local file used in my unit tests.&lt;/p&gt;
-
-&lt;p&gt;Using the command line, I had to refer to the file using relative path, but the IDE was looking for full path (which
-is obviously wrong). Here is the trick to make both of them happy at the same time.&lt;/p&gt;
-
-&lt;p&gt;Here is how my &lt;em&gt;tests&lt;/em&gt; folder is structured&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/call_local_file_in_unit_test/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And here is where the magic happens. This is done in the &lt;strong&gt;setUp&lt;/strong&gt; method at the beginning of every unit test class that
-will need to use those local files.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;experiment_test.py&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ExperimentTest(unittest.TestCase):
-
-    def setUp(self):
-        _file_path = os.path.dirname(__file__)
-        self.data_path = os.path.abspath(os.path.join(_file_path, &#39;../../data&#39;))
-
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and here, this is how you use it&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def test_experiment_calculate_lambda(self):
-    _tof_file = os.path.join(self.data_path, &#39;tof.txt&#39;)
-    _tof_obj = TOF(filename = _tof_file)
-    ...
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -11,6 +11,45 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How to customize QPushButton Icons</title>
+      <link>/post/icon_qpushbutton/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/icon_qpushbutton/</guid>
+      <description>
+
+&lt;p&gt;For one of my project I had to display a customized push button. I found a couple of ways to do this.&lt;/p&gt;
+
+&lt;p&gt;The goal is to display the following icon inside a QPushButton.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_rotation_left.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;using-qtgui-qicon&#34;&gt;Using QtGui.QIcon&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s pretend our image is at &lt;em&gt;/Users/j35/Desktop/button_rotation_left.png&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_icon = QtGui.QIcon(&amp;quot;/Users/j35/Desktop/button_rotation_left.png&amp;quot;)
+my_button = QtGui.QPushButton()
+my_button.setIcon(_icon)
+my_button.setIconSize(QtCore.QSize(50, 300))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method1.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem of using this way, is that the button looses its &lt;strong&gt;push button&lt;/strong&gt; feature that changes the look of the
+button when the user click it.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-stylesheet&#34;&gt;Using StyleSheet&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;my_button = QtGui.QPushButton()
+my_button.setStyleSheet(&amp;quot;background-image: url(&#39;/Users/j35/Desktop/button_rotation_left.png&#39;); background-repeat: no-repeat&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method2.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Gamma Filtering</title>
       <link>/post/gamma_filtering_method/</link>
       <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
@@ -1603,53 +1642,6 @@ will need to use those local files.&lt;/p&gt;
     _tof_obj = TOF(filename = _tof_file)
     ...
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to add a title to a matplotlib figure inside a notebook</title>
-      <link>/post/how_to_add_title_to_matplotlib_figure/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/how_to_add_title_to_matplotlib_figure/</guid>
-      <description>&lt;p&gt;By default, matplotlib only provides an increment index to the figure title as shown here&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_file_name = _files[index]
-fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5))
-
-#plt.title(os.path.basename(_files[index]))
-cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax0.set_title(&amp;quot;Before Correction&amp;quot;)
-_ = fig.colorbar(cax0, ax=ax0) # colorbar
-
-cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax1.set_title(&amp;quot;After Correction&amp;quot;)
-_ = fig.colorbar(cax1, ax=ax1) # colorbar
-
-fig.tight_layout()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_title_to_matplolib_figure/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In order to provide a title to this plot, simply add a value to the flag &lt;strong&gt;num&lt;/strong&gt; in &lt;strong&gt;plt.subplots&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;_file_name = _files[index]
-fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5),
-                               num=os.path.basename(_file_name))
-
-#plt.title(os.path.basename(_files[index]))
-cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax0.set_title(&amp;quot;Before Correction&amp;quot;)
-_ = fig.colorbar(cax0, ax=ax0) # colorbar
-
-cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None)
-ax1.set_title(&amp;quot;After Correction&amp;quot;)
-_ = fig.colorbar(cax1, ax=ax1) # colorbar
-
-fig.tight_layout()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_title_to_matplolib_figure/screen2.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     
