@@ -11,6 +11,128 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How python Class properties work</title>
+      <link>/post/python_class_properties/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/python_class_properties/</guid>
+      <description>&lt;p&gt;Using this &lt;a href=&#34;https://pybit.es/property-decorator.html&#34; target=&#34;_blank&#34;&gt;tutorial&lt;/a&gt; I came up with this post that summarize what I need
+to remember about &lt;strong&gt;python classes properties&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Class Properties are very useful in the way that they can check automatically the format of a parameter passed in can
+customize, or calculate on the fly, a parameter requested.&lt;/p&gt;
+
+&lt;p&gt;Here I define a first parent class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class FlyingHours:
+
+    def __init__(self, owner, starting_hours=0):
+        self.owner = owner.title()  # first character is upper case
+        self.starting_hours = starting_hours
+        self._total_hours = starting_hours
+
+    def __str__(self):
+        s = [&amp;quot;{} of {}&amp;quot;.format(__class__.__name__, self.owner),
+             &amp;quot;Total Hours: {}&amp;quot;.format(self._total_hours),
+            ]
+        return &#39;\n\n&#39;.join(s)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; o_plane = FlyingHours(&amp;quot;jean bilheux&amp;quot;, &amp;quot;bob&amp;quot;)
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: bob
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then in a child class, I introduce the getter and setter of the &lt;strong&gt;starting hours&lt;/strong&gt; parameter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class FlyingHours1(FlyingHours):
+
+    def __init__(self, owner, starting_hours=0):
+        super().__init__(owner, starting_hours=starting_hours)
+
+    @property
+    def starting_hours(self):
+        return self._starting_hours
+
+    @starting_hours.setter
+    def starting_hours(self, hours):
+        if not isinstance(hours, int):
+            raise TypeError(&amp;quot;must be a int&amp;quot;)
+        if hours &amp;lt;= 0:
+            raise ValueError(&amp;quot;must be greater than 0!&amp;quot;)
+        self._starting_hours = hours
+
+    @starting_hours.deleter
+    def starting_hours(self):
+        raise AttributeError(&amp;quot;Cannot reset hours!&amp;quot;)
+
+    @property
+    def hours(self):
+        return &amp;quot;You have been flying {}&amp;quot;.format(self._starting_hours)
+
+    def _add_hours(self, hours):
+        self._total_hours += hours
+
+    def __iadd__(self, hours):
+        &#39;Magic method to allow for acc += amount&#39;
+        self._add_hours(hours)
+        return self  # need to return object!
+
+    def __isub__(self, hours):
+        &#39;Magic method to allow for acc -= amount&#39;
+        self._add_hours(-hours)
+        return self
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this code, the &lt;strong&gt;starting hours&lt;/strong&gt; are automatically checked when passed in (even during initialization)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; o_plane = FlyingHours1(&amp;quot;jean bilheux&amp;quot;, starting_hours=&amp;quot;zero hours&amp;quot;)
+&amp;gt; print(o_plane)
+...
+&amp;lt;ipython-input-3-d84930155a49&amp;gt; in starting_hours(self, hours)
+     11     def starting_hours(self, hours):
+     12         if not isinstance(hours, int):
+---&amp;gt; 13             raise TypeError(&amp;quot;must be a int&amp;quot;)
+     14         if hours &amp;lt;= 0:
+     15             raise ValueError(&amp;quot;must be greater than 0!&amp;quot;)
+
+TypeError: must be a int
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we can retrieve &lt;strong&gt;starting hours&lt;/strong&gt; using the getter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane.starting_hours
+10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and you can also define your own output using your customize getter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane.hours
+&#39;You have been flying 10&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Other cool features (not related to properties) but to &lt;strong&gt;refactoring and computation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane += 10
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: 20
+
+&amp;gt; o_plane += 20
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: 35
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notebook tutorial can be found in &lt;a href=&#34;https://github.com/JeanBilheux/python_101/blob/master/python_thinking/properties_class.ipynb&#34; target=&#34;_blank&#34;&gt;python_101&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to customize QPushButton Icons</title>
       <link>/post/icon_qpushbutton/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
@@ -46,6 +168,14 @@ my_button.setStyleSheet(&amp;quot;background-image: url(&#39;/Users/j35/Desktop/
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method2.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/36714078/pyqt4-how-to-make-icon-bigger-than-qpushbutton-pixmap-buttons&#34; target=&#34;_blank&#34;&gt;stackOverflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pyqt.sourceforge.net/Docs/PyQt4/qicon.html&#34; target=&#34;_blank&#34;&gt;QIcon documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://doc.qt.io/archives/qt-4.8/stylesheet-examples.html&#34; target=&#34;_blank&#34;&gt;StyleSheet examples with QPushButton&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -1602,46 +1732,6 @@ this empty, leaving it up to the user to install it on its own.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;(Thank you to &lt;a href=&#34;https://dbader.org/&#34; target=&#34;_blank&#34;&gt;Dan Bader&lt;/a&gt; for this final shortcut tip!)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Use of local file in unit test</title>
-      <link>/post/call_local_file_in_unit_test/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/call_local_file_in_unit_test/</guid>
-      <description>&lt;p&gt;I had some issue in one of my project when running my unit test from the command line and from my IDE. I could never
-have both happy at the same time. This was related to the way I was calling local file used in my unit tests.&lt;/p&gt;
-
-&lt;p&gt;Using the command line, I had to refer to the file using relative path, but the IDE was looking for full path (which
-is obviously wrong). Here is the trick to make both of them happy at the same time.&lt;/p&gt;
-
-&lt;p&gt;Here is how my &lt;em&gt;tests&lt;/em&gt; folder is structured&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/call_local_file_in_unit_test/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And here is where the magic happens. This is done in the &lt;strong&gt;setUp&lt;/strong&gt; method at the beginning of every unit test class that
-will need to use those local files.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;experiment_test.py&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ExperimentTest(unittest.TestCase):
-
-    def setUp(self):
-        _file_path = os.path.dirname(__file__)
-        self.data_path = os.path.abspath(os.path.join(_file_path, &#39;../../data&#39;))
-
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and here, this is how you use it&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def test_experiment_calculate_lambda(self):
-    _tof_file = os.path.join(self.data_path, &#39;tof.txt&#39;)
-    _tof_obj = TOF(filename = _tof_file)
-    ...
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

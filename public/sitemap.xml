@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/python_class_properties/</loc>
+      <lastmod>2018-05-23T00:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/icon_qpushbutton/</loc>
       <lastmod>2018-05-11T00:00:00-04:00</lastmod>
     </url>
@@ -332,6 +341,16 @@
     
     <url>
     
+      <loc>/tags/class/</loc>
+      <lastmod>2018-05-23T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/conda/</loc>
       <lastmod>2018-03-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
@@ -542,6 +561,16 @@
     
     <url>
     
+      <loc>/tags/property/</loc>
+      <lastmod>2018-05-23T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/publication_types/</loc>
       <lastmod>2018-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -583,7 +612,7 @@
     <url>
     
       <loc>/tags/python/</loc>
-      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
+      <lastmod>2018-05-23T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     

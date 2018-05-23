@@ -11,6 +11,128 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How python Class properties work</title>
+      <link>/post/python_class_properties/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/python_class_properties/</guid>
+      <description>&lt;p&gt;Using this &lt;a href=&#34;https://pybit.es/property-decorator.html&#34; target=&#34;_blank&#34;&gt;tutorial&lt;/a&gt; I came up with this post that summarize what I need
+to remember about &lt;strong&gt;python classes properties&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Class Properties are very useful in the way that they can check automatically the format of a parameter passed in can
+customize, or calculate on the fly, a parameter requested.&lt;/p&gt;
+
+&lt;p&gt;Here I define a first parent class&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class FlyingHours:
+
+    def __init__(self, owner, starting_hours=0):
+        self.owner = owner.title()  # first character is upper case
+        self.starting_hours = starting_hours
+        self._total_hours = starting_hours
+
+    def __str__(self):
+        s = [&amp;quot;{} of {}&amp;quot;.format(__class__.__name__, self.owner),
+             &amp;quot;Total Hours: {}&amp;quot;.format(self._total_hours),
+            ]
+        return &#39;\n\n&#39;.join(s)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; o_plane = FlyingHours(&amp;quot;jean bilheux&amp;quot;, &amp;quot;bob&amp;quot;)
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: bob
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then in a child class, I introduce the getter and setter of the &lt;strong&gt;starting hours&lt;/strong&gt; parameter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class FlyingHours1(FlyingHours):
+
+    def __init__(self, owner, starting_hours=0):
+        super().__init__(owner, starting_hours=starting_hours)
+
+    @property
+    def starting_hours(self):
+        return self._starting_hours
+
+    @starting_hours.setter
+    def starting_hours(self, hours):
+        if not isinstance(hours, int):
+            raise TypeError(&amp;quot;must be a int&amp;quot;)
+        if hours &amp;lt;= 0:
+            raise ValueError(&amp;quot;must be greater than 0!&amp;quot;)
+        self._starting_hours = hours
+
+    @starting_hours.deleter
+    def starting_hours(self):
+        raise AttributeError(&amp;quot;Cannot reset hours!&amp;quot;)
+
+    @property
+    def hours(self):
+        return &amp;quot;You have been flying {}&amp;quot;.format(self._starting_hours)
+
+    def _add_hours(self, hours):
+        self._total_hours += hours
+
+    def __iadd__(self, hours):
+        &#39;Magic method to allow for acc += amount&#39;
+        self._add_hours(hours)
+        return self  # need to return object!
+
+    def __isub__(self, hours):
+        &#39;Magic method to allow for acc -= amount&#39;
+        self._add_hours(-hours)
+        return self
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this code, the &lt;strong&gt;starting hours&lt;/strong&gt; are automatically checked when passed in (even during initialization)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; o_plane = FlyingHours1(&amp;quot;jean bilheux&amp;quot;, starting_hours=&amp;quot;zero hours&amp;quot;)
+&amp;gt; print(o_plane)
+...
+&amp;lt;ipython-input-3-d84930155a49&amp;gt; in starting_hours(self, hours)
+     11     def starting_hours(self, hours):
+     12         if not isinstance(hours, int):
+---&amp;gt; 13             raise TypeError(&amp;quot;must be a int&amp;quot;)
+     14         if hours &amp;lt;= 0:
+     15             raise ValueError(&amp;quot;must be greater than 0!&amp;quot;)
+
+TypeError: must be a int
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we can retrieve &lt;strong&gt;starting hours&lt;/strong&gt; using the getter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane.starting_hours
+10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and you can also define your own output using your customize getter&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane.hours
+&#39;You have been flying 10&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Other cool features (not related to properties) but to &lt;strong&gt;refactoring and computation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt; o_plane += 10
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: 20
+
+&amp;gt; o_plane += 20
+&amp;gt; print(o_plane)
+FlyingHours of Jean Bilheux
+
+Total Hours: 35
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notebook tutorial can be found in &lt;a href=&#34;https://github.com/JeanBilheux/python_101/blob/master/python_thinking/properties_class.ipynb&#34; target=&#34;_blank&#34;&gt;python_101&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to customize QPushButton Icons</title>
       <link>/post/icon_qpushbutton/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
@@ -46,6 +168,14 @@ my_button.setStyleSheet(&amp;quot;background-image: url(&#39;/Users/j35/Desktop/
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/icon_qpushbutton/button_method2.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/36714078/pyqt4-how-to-make-icon-bigger-than-qpushbutton-pixmap-buttons&#34; target=&#34;_blank&#34;&gt;stackOverflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pyqt.sourceforge.net/Docs/PyQt4/qicon.html&#34; target=&#34;_blank&#34;&gt;QIcon documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://doc.qt.io/archives/qt-4.8/stylesheet-examples.html&#34; target=&#34;_blank&#34;&gt;StyleSheet examples with QPushButton&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -1506,139 +1636,6 @@ clicking the &lt;strong&gt;GitHub&lt;/strong&gt; button in the menu, on the left
 &lt;p&gt;If you go back to the &lt;strong&gt;zenodo&lt;/strong&gt; web site, you should see the new DOI created for the release you juste made.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen7.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to create a python library using pip</title>
-      <link>/post/create_pip_python_library/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/create_pip_python_library/</guid>
-      <description>
-
-&lt;p&gt;I have been working on a small project that allows to calculate the radial profile of an image for a given angular range.
-We are not interested in this post about the functionality of the library itself, but in case you are curious, here
-is where you can find the source code &lt;a href=&#34;https://github.com/JeanBilheux/SectorizedRadialProfile&#34; target=&#34;_blank&#34;&gt;SectorizedRadialProfile&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I, first, ned to mention that the code is fully documented using &lt;a href=&#34;https://pypi.python.org/pypi/Sphinx&#34; target=&#34;_blank&#34;&gt;sphinx&lt;/a&gt; and fully
-unit tested using &lt;a href=&#34;https://pypi.python.org/pypi/pytest&#34; target=&#34;_blank&#34;&gt;pytest&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I learned to create packages using the well documented [python packaging user guide[(&lt;a href=&#34;https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing&#34; target=&#34;_blank&#34;&gt;https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing&lt;/a&gt;),
-but I still decided to make this short tutorial in order to quickly remind me the key points.&lt;/p&gt;
-
-&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
-
-&lt;p&gt;First you need to install &lt;strong&gt;twine&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install twine
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;configuring-the-project&#34;&gt;configuring the project&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;setup.py&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is a very important file. This is where you define the metadata of your project. For this project, here is my
-&lt;em&gt;setup.py&lt;/em&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python
-from setuptools import setup, find_packages
-
-setup(
-    name = &amp;quot;sectorizedradialprofile&amp;quot;,
-    version = &amp;quot;1.0.0&amp;quot;,
-    author = &amp;quot;Jean Bilheux&amp;quot;,
-    author_email = &amp;quot;bilheuxjm@ornl.gov&amp;quot;,
-    packages = find_packages(exclude=[&#39;tests&#39;, &#39;notebooks&#39;]),
-    include_package_data = True,
-    test_suite = &#39;tests&#39;,
-    install_requires = [
-        &#39;numpy&#39;,
-        &#39;pyfits&#39;,
-        &#39;pillow&#39;,
-    ],
-    dependency_links = [
-    ],
-    description = &amp;quot;Radial profile of a given sector of an 2D array&amp;quot;,
-    license = &#39;BSD&#39;,
-    keywords = &amp;quot;tiff tif profile radial sector&amp;quot;,
-    url = &amp;quot;https://github.com/JeanBilheux/SectorizedRadialProfile&amp;quot;,
-    classifiers = [&#39;Development Status :: 3 - Alpha&#39;,
-                   &#39;Topic :: Scientific/Engineering :: Physics&#39;,
-                   &#39;Intended Audience :: Developers&#39;,
-                   &#39;Programming Language :: Python :: 2.7&#39;,
-                   &#39;Programming Language :: Python :: 3.5&#39;],
-)
-
-# End of file
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;setup.cfg&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This file contains the default option for &lt;em&gt;setup.py&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;[bdist_wheel]
-universal=1
-
-[bdist]
-formats=rpm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;README.rst&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is usually where the user will go first to learn how to use your library, so there is important.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MANIFEST.in&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is where you define the library needed by your package. In this project, I only needed &lt;em&gt;numpy&lt;/em&gt; but I still left
-this empty, leaving it up to the user to install it on its own.&lt;/p&gt;
-
-&lt;h2 id=&#34;packaging-the-project&#34;&gt;Packaging the project&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; python setup.py sdist
-&amp;gt; python setup.py bdist_wheel --universal
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;upload-the-distribution&#34;&gt;Upload the distribution&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;First, we needt to get a &lt;a href=&#34;https://pypi.python.org/pypi?%3Aaction=register_form&#34; target=&#34;_blank&#34;&gt;PyPi user account&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;We can then upload the distribution&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; twine upload dist/*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and voila !&lt;/p&gt;
-
-&lt;p&gt;Your package is now available on PyPi and can be installed using pip&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install sectorizedradialprofile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen3.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sum-up&#34;&gt;Sum up&lt;/h2&gt;
-
-&lt;p&gt;To sumarize, and using a tag version this time&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; git tag X.Y.Z -m &amp;quot;Relase X.Y.Z.&amp;quot;
-&amp;gt; git push --tags
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install --upgrade twine wheel
-&amp;gt; python setup.py sdist bdist_wheel --universal
-&amp;gt; twine upload dist/*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(Thank you to &lt;a href=&#34;https://dbader.org/&#34; target=&#34;_blank&#34;&gt;Dan Bader&lt;/a&gt; for this final shortcut tip!)&lt;/p&gt;
 </description>
     </item>
     
