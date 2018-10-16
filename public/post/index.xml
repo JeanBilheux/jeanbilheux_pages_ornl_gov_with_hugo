@@ -11,6 +11,60 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>How to automatically plural words in Python</title>
+      <link>/post/inflect_python_library/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/inflect_python_library/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;inflect&lt;/strong&gt; correctly generate plurals, singular nouns, ordinals, indefinite articles; convert numbers to words.parameters&lt;/p&gt;
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;This library can be installed via &lt;strong&gt;pip&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; pip install inflect 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and the full documentation of this library can be found &lt;a href=&#34;https://pypi.org/project/inflect/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-does-it-work&#34;&gt;How Does it Work?&lt;/h2&gt;
+
+&lt;p&gt;When do we need this tool&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;You want to see {} variable&amp;quot;.format(user_variable))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No matter the value of user_variable, the output will always be something like&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;You want to see X variable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem here!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using now this new library&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import inflect
+p = inflect.engine()
+print(&amp;quot;You want to see {}.format(user_variable) + p.plura(&amp;quot;variable&amp;quot;, user_variable)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;if user_variable is 1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;You want to see 1 variable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;but if user_variable is 3 for exam ple&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;You want to see 3 variables
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NB: I used this library for the first time in the notebook &lt;em&gt;metadata_ascii_parser.ipynb&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How python Class properties work</title>
       <link>/post/python_class_properties/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
@@ -1599,139 +1653,6 @@ clicking the &lt;strong&gt;GitHub&lt;/strong&gt; button in the menu, on the left
 &lt;p&gt;If you go back to the &lt;strong&gt;zenodo&lt;/strong&gt; web site, you should see the new DOI created for the release you juste made.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen7.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to create a python library using pip</title>
-      <link>/post/create_pip_python_library/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/create_pip_python_library/</guid>
-      <description>
-
-&lt;p&gt;I have been working on a small project that allows to calculate the radial profile of an image for a given angular range.
-We are not interested in this post about the functionality of the library itself, but in case you are curious, here
-is where you can find the source code &lt;a href=&#34;https://github.com/JeanBilheux/SectorizedRadialProfile&#34; target=&#34;_blank&#34;&gt;SectorizedRadialProfile&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I, first, ned to mention that the code is fully documented using &lt;a href=&#34;https://pypi.python.org/pypi/Sphinx&#34; target=&#34;_blank&#34;&gt;sphinx&lt;/a&gt; and fully
-unit tested using &lt;a href=&#34;https://pypi.python.org/pypi/pytest&#34; target=&#34;_blank&#34;&gt;pytest&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I learned to create packages using the well documented [python packaging user guide[(&lt;a href=&#34;https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing&#34; target=&#34;_blank&#34;&gt;https://packaging.python.org/tutorials/distributing-packages/#requirements-for-packaging-and-distributing&lt;/a&gt;),
-but I still decided to make this short tutorial in order to quickly remind me the key points.&lt;/p&gt;
-
-&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
-
-&lt;p&gt;First you need to install &lt;strong&gt;twine&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install twine
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;configuring-the-project&#34;&gt;configuring the project&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;setup.py&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is a very important file. This is where you define the metadata of your project. For this project, here is my
-&lt;em&gt;setup.py&lt;/em&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/env python
-from setuptools import setup, find_packages
-
-setup(
-    name = &amp;quot;sectorizedradialprofile&amp;quot;,
-    version = &amp;quot;1.0.0&amp;quot;,
-    author = &amp;quot;Jean Bilheux&amp;quot;,
-    author_email = &amp;quot;bilheuxjm@ornl.gov&amp;quot;,
-    packages = find_packages(exclude=[&#39;tests&#39;, &#39;notebooks&#39;]),
-    include_package_data = True,
-    test_suite = &#39;tests&#39;,
-    install_requires = [
-        &#39;numpy&#39;,
-        &#39;pyfits&#39;,
-        &#39;pillow&#39;,
-    ],
-    dependency_links = [
-    ],
-    description = &amp;quot;Radial profile of a given sector of an 2D array&amp;quot;,
-    license = &#39;BSD&#39;,
-    keywords = &amp;quot;tiff tif profile radial sector&amp;quot;,
-    url = &amp;quot;https://github.com/JeanBilheux/SectorizedRadialProfile&amp;quot;,
-    classifiers = [&#39;Development Status :: 3 - Alpha&#39;,
-                   &#39;Topic :: Scientific/Engineering :: Physics&#39;,
-                   &#39;Intended Audience :: Developers&#39;,
-                   &#39;Programming Language :: Python :: 2.7&#39;,
-                   &#39;Programming Language :: Python :: 3.5&#39;],
-)
-
-# End of file
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;setup.cfg&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This file contains the default option for &lt;em&gt;setup.py&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;[bdist_wheel]
-universal=1
-
-[bdist]
-formats=rpm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;README.rst&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is usually where the user will go first to learn how to use your library, so there is important.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MANIFEST.in&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is where you define the library needed by your package. In this project, I only needed &lt;em&gt;numpy&lt;/em&gt; but I still left
-this empty, leaving it up to the user to install it on its own.&lt;/p&gt;
-
-&lt;h2 id=&#34;packaging-the-project&#34;&gt;Packaging the project&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; python setup.py sdist
-&amp;gt; python setup.py bdist_wheel --universal
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;upload-the-distribution&#34;&gt;Upload the distribution&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;First, we needt to get a &lt;a href=&#34;https://pypi.python.org/pypi?%3Aaction=register_form&#34; target=&#34;_blank&#34;&gt;PyPi user account&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;We can then upload the distribution&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; twine upload dist/*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and voila !&lt;/p&gt;
-
-&lt;p&gt;Your package is now available on PyPi and can be installed using pip&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install sectorizedradialprofile
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_python_library/screen3.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sum-up&#34;&gt;Sum up&lt;/h2&gt;
-
-&lt;p&gt;To sumarize, and using a tag version this time&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; git tag X.Y.Z -m &amp;quot;Relase X.Y.Z.&amp;quot;
-&amp;gt; git push --tags
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install --upgrade twine wheel
-&amp;gt; python setup.py sdist bdist_wheel --universal
-&amp;gt; twine upload dist/*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(Thank you to &lt;a href=&#34;https://dbader.org/&#34; target=&#34;_blank&#34;&gt;Dan Bader&lt;/a&gt; for this final shortcut tip!)&lt;/p&gt;
 </description>
     </item>
     
