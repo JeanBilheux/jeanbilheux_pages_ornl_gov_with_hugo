@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>property on Jean Bilheux</title>
+    <link>/tags/property/</link>
+    <description>Recent content in property on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 23 May 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/tags/property/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How python Class properties work</title>
+      <link>/post/python_class_properties/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/python_class_properties/</guid>
+      <description>Using this tutorial I came up with this post that summarize what I need to remember about python classes properties.
+Class Properties are very useful in the way that they can check automatically the format of a parameter passed in can customize, or calculate on the fly, a parameter requested.
+Here I define a first parent class
+class FlyingHours: def __init__(self, owner, starting_hours=0): self.owner = owner.title() # first character is upper case self.</description>
+    </item>
+    
+  </channel>
+</rss>

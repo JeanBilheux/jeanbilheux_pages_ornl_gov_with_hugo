@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyqt on Jean Bilheux</title>
+    <link>/tags/pyqt/</link>
+    <description>Recent content in pyqt on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 16 Oct 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/tags/pyqt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Launching PyQt from script</title>
+      <link>/post/start_pyqt_ui_from_script_itself/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/start_pyqt_ui_from_script_itself/</guid>
+      <description>I designed the very simple following UI using QtDesigner and called it main_window.ui. I placed it in the ui_template folder.
+Here is what the structure of my project looks like.
+I have my own script that buitl automatically the python version of the template
+setup.py
+import os class UiBuilder(object): pyuic = &#39;&#39; def __init__(self, ui_name=&#39;&#39;): self.define_pyuic_to_run() self.ui_name = os.path.abspath(&#39;ui_template/&#39; + ui_name) [base, ext] = os.path.splitext(ui_name) py_name = base + &#39;.py&#39; self.</description>
+    </item>
+    
+    <item>
+      <title>How to customize QPushButton Icons</title>
+      <link>/post/icon_qpushbutton/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/icon_qpushbutton/</guid>
+      <description>For one of my project I had to display a customized push button. I found a couple of ways to do this.
+The goal is to display the following icon inside a QPushButton.
+Using QtGui.QIcon Let&amp;rsquo;s pretend our image is at /Users/j35/Desktop/button_rotation_left.png
+_icon = QtGui.QIcon(&amp;quot;/Users/j35/Desktop/button_rotation_left.png&amp;quot;) my_button = QtGui.QPushButton() my_button.setIcon(_icon) my_button.setIconSize(QtCore.QSize(50, 300))  The problem of using this way, is that the button looses its push button feature that changes the look of the button when the user click it.</description>
+    </item>
+    
+    <item>
+      <title>How to lock all the signals of a widget</title>
+      <link>/post/pyqt_block_signals/</link>
+      <pubDate>Fri, 12 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/pyqt_block_signals/</guid>
+      <description>I had to work on a project where the modification of any cell of a big table had to trigger an event. But there were cases where I had to repopulate the entire table. The problem of doing so is that each cell will then trigger the event.
+The solution is very simple. All you need is to block all the signals before updating the table (for example) and then unlock the signals once it&amp;rsquo;s done.</description>
+    </item>
+    
+    <item>
+      <title>Getting started with PyQt applications</title>
+      <link>/post/getting_started_with_pyqt_applications/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/getting_started_with_pyqt_applications/</guid>
+      <description>Getting started with a PyQt application is alwawys intimidating. We always have a few important questions when starting such a project:
+ what tools do I need? PyQt, python, Qt Designer&amp;hellip;etc. how should I structure my project how to compile it?  Here is a step by step instructions that shows you how to get started. I&amp;rsquo;m not telling you this is the right way (if there is any) or even the best way to do it, but I know this way works for me, so here it is.</description>
+    </item>
+    
+    <item>
+      <title>Bragg Edge User Interface (iBeatles)</title>
+      <link>/project/ibeatles/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/ibeatles/</guid>
+      <description>Several wavelength-dependent proof-of-concept imaging measurements have been performed at the Spallation Neutron Source (SNS) VULCAN and SNAP beam lines. This effort is focused on prototyping imaging software for the future SNS VENUS imaging beam line. One of the time- of-flight (TOF) techniques that is of interest to the scientific community is the 2-dimensional mapping of phases and average crystalline plane orientation in samples ex-situ, but also during applied stresses such as tensile loading and heating.</description>
+    </item>
+    
+  </channel>
+</rss>

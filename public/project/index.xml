@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Jean Bilheux</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 19 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Neutron Imaging Official Web Site</title>
+      <link>/project/neutron_imaging_web_site/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/neutron_imaging_web_site/</guid>
+      <description>Using HUGO framework, I implemented the Oak Ridge National Laboratory Neutron Imaging Web Site.
+Why? Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before coming to the facility. We used to try to answer those questions by email. This present some issues: * easy to miss some steps * previous users coming to the beamline hesitate in contacting us again * information we send can easily be out of date</description>
+    </item>
+    
+    <item>
+      <title>Bragg Edge User Interface (iBeatles)</title>
+      <link>/project/ibeatles/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/ibeatles/</guid>
+      <description>Several wavelength-dependent proof-of-concept imaging measurements have been performed at the Spallation Neutron Source (SNS) VULCAN and SNAP beam lines. This effort is focused on prototyping imaging software for the future SNS VENUS imaging beam line. One of the time- of-flight (TOF) techniques that is of interest to the scientific community is the 2-dimensional mapping of phases and average crystalline plane orientation in samples ex-situ, but also during applied stresses such as tensile loading and heating.</description>
+    </item>
+    
+    <item>
+      <title>Jupyter notebooks</title>
+      <link>/project/jupyter_notebooks/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/jupyter_notebooks/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

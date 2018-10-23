@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notebook on Jean Bilheux</title>
+    <link>/tags/notebook/</link>
+    <description>Recent content in notebook on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 05 Mar 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/notebook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keep Pan and Zoom of ImageView When Displaying New Image</title>
+      <link>/post/pyqtgraph_states/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/pyqtgraph_states/</guid>
+      <description>The ImageViewer of pyqtgraph is amazing but comes with an annoying feature, the reset of the pan and zoom if you display a new image (as shown here)
+A couple of lines of codes need to be added in order to preserve those settings when switching image. Looks like nothing but it took me a couple of hours to figure it out so here it is with code before and after</description>
+    </item>
+    
+    <item>
+      <title>Working with the histogram widget of pyqtgraph</title>
+      <link>/post/pyqtgraph_histogram/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/pyqtgraph_histogram/</guid>
+      <description>The histogram tool on the side of the image coming for free with pyqtgraph is amazing. You can change or move the range but any refresh of the image reset the settings defined. Here is how you can fix those settings.
+My main challenge has been to recover the id of the histogram when not initializing this one myself. And here is the way
+class MyPyqt(QMainWindow): histogram_level = [] def __init__(self): self.</description>
+    </item>
+    
+    <item>
+      <title>How to format the notebook widgets</title>
+      <link>/post/how_to_format_widget_in_notebook/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_format_widget_in_notebook/</guid>
+      <description>When working with widgets inside a notebook, the default style looks like this
+In order to change its style, it&amp;rsquo;s possible to modify the CSS style sheet as followed
+from IPython.core.display import HTML HTML(&amp;quot;&amp;quot;&amp;quot; &amp;lt;style&amp;gt; .mytext &amp;gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &amp;gt; input[type=&amp;quot;text&amp;quot;] { font-size: 20px; color: green; } &amp;lt;/style&amp;gt; &amp;quot;&amp;quot;&amp;quot;)  And this will give a new style as shown here
+Thanks to Kynan for the following post who helped me figuring out the solution</description>
+    </item>
+    
+    <item>
+      <title>Automatically convert notebooks into html page for documentation using sphinx</title>
+      <link>/post/convert_notebooks_to_html_pages/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/convert_notebooks_to_html_pages/</guid>
+      <description>I&amp;rsquo;m going to show you here how you can easily create an HTML document from a notebook.
+1 - First thing you need is make sure your notebook has a title
+# this is my title  Then, make sure that all the other headings of the notebooks have a lower hierarchy.
+2 - Then you will need to import the following python libraries
+&amp;gt; pip install sphinx &amp;gt; pip install nbconvert &amp;gt; pip install pandoc &amp;gt; pip install latex &amp;gt; pip install nbsphinx  Somehow, I had to use conda for the pandoc library to work.</description>
+    </item>
+    
+    <item>
+      <title>Create a Target type tool in matplotlib</title>
+      <link>/post/target_tool_in_matplotlib/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/target_tool_in_matplotlib/</guid>
+      <description>In one of my project, I had to select, for various images, the best center of a circular object. I came up with the following solution that, when used with the jupyter notebooks widgets, helps finding the best center of the object.
+Here is such an image where we need to find the center. In this case, it&amp;rsquo;s pretty obvious, but in real cases it&amp;rsquo;s much more complicated so this tool should really help.</description>
+    </item>
+    
+    <item>
+      <title>How to add a title to a matplotlib figure inside a notebook</title>
+      <link>/post/how_to_add_title_to_matplotlib_figure/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_add_title_to_matplotlib_figure/</guid>
+      <description>By default, matplotlib only provides an increment index to the figure title as shown here
+_file_name = _files[index] fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5)) #plt.title(os.path.basename(_files[index])) cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None) ax0.set_title(&amp;quot;Before Correction&amp;quot;) _ = fig.colorbar(cax0, ax=ax0) # colorbar cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None) ax1.set_title(&amp;quot;After Correction&amp;quot;) _ = fig.colorbar(cax1, ax=ax1) # colorbar fig.tight_layout()  In order to provide a title to this plot, simply add a value to the flag num in plt.</description>
+    </item>
+    
+    <item>
+      <title>How to trigger only 1 notebook widget dropdown event</title>
+      <link>/post/how_to_trigger_single_notebook_widget_event/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_trigger_single_notebook_widget_event/</guid>
+      <description>I’m working on a notebook that is supposed to clean images. Nothing fancy here, just replacing the negative, inf and NaN values by either 0 or NaN.
+This can be done interactively using the following widgets.
+But my problem is that each time a selection inside one of the dropdown widgets is changed, it triggers 5 events. So I added the following snipet of code to cheat the system and only work with the first event triggered.</description>
+    </item>
+    
+    <item>
+      <title>How to turn off warnings in the notebooks</title>
+      <link>/post/how_to_remove_notebook_warning/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_remove_notebook_warning/</guid>
+      <description>If you are annoyed by warning messages (see top picture), Just add the following command at the top of your notebook
+import warnings warnings.filterwarnings(‘ignore’)  </description>
+    </item>
+    
+    <item>
+      <title>What my .gitignore file looks like</title>
+      <link>/post/my_gitignore_file/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/my_gitignore_file/</guid>
+      <description>When working with notebooks and python projects, here is what my .gitignore file looks like.
+__pycache__ *.py[cod] .ipynb* .coverage /cover/* # mac .DS_Store .cache # Packages *.egg *.egg-info dist build eggs parts bin var sdist MANIFEST # Unit test / coverage reports .coverage  </description>
+    </item>
+    
+  </channel>
+</rss>

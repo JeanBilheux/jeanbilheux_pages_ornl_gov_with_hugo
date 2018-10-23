@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>braggedge on Jean Bilheux</title>
+    <link>/tags/braggedge/</link>
+    <description>Recent content in braggedge on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 09 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/braggedge/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bragg Edge User Interface (iBeatles)</title>
+      <link>/project/ibeatles/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/ibeatles/</guid>
+      <description>Several wavelength-dependent proof-of-concept imaging measurements have been performed at the Spallation Neutron Source (SNS) VULCAN and SNAP beam lines. This effort is focused on prototyping imaging software for the future SNS VENUS imaging beam line. One of the time- of-flight (TOF) techniques that is of interest to the scientific community is the 2-dimensional mapping of phases and average crystalline plane orientation in samples ex-situ, but also during applied stresses such as tensile loading and heating.</description>
+    </item>
+    
+  </channel>
+</rss>

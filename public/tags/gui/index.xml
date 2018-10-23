@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GUI on Jean Bilheux</title>
+    <link>/tags/gui/</link>
+    <description>Recent content in GUI on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 11 May 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to customize QPushButton Icons</title>
+      <link>/post/icon_qpushbutton/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/icon_qpushbutton/</guid>
+      <description>For one of my project I had to display a customized push button. I found a couple of ways to do this.
+The goal is to display the following icon inside a QPushButton.
+Using QtGui.QIcon Let&amp;rsquo;s pretend our image is at /Users/j35/Desktop/button_rotation_left.png
+_icon = QtGui.QIcon(&amp;quot;/Users/j35/Desktop/button_rotation_left.png&amp;quot;) my_button = QtGui.QPushButton() my_button.setIcon(_icon) my_button.setIconSize(QtCore.QSize(50, 300))  The problem of using this way, is that the button looses its push button feature that changes the look of the button when the user click it.</description>
+    </item>
+    
+  </channel>
+</rss>

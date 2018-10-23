@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>int on Jean Bilheux</title>
+    <link>/tags/int/</link>
+    <description>Recent content in int on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/int/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to handle a list of int and improve its display</title>
+      <link>/post/list_of_int_parser/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/list_of_int_parser/</guid>
+      <description>Introduction In one of my project, I had to handle a list of runs and improve the way it was displayed.
+For example
+10,20,21,22,23,24,30,40,41,15,18  should be displayed
+10,15,18,20:24,30,40,41  Also, if a user add new runs to the list, using a dropdown list on the side, the list will be updaded as followed:
+ if a number is already in the list, it will be removed if a number is new to the list, it will just be added  Before showing you the code, here is how it works using a few examples</description>
+    </item>
+    
+  </channel>
+</rss>
