@@ -11,6 +11,32 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Python Tricks</title>
+      <link>/post/python_tricks/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/python_tricks/</guid>
+      <description>
+
+&lt;h2 id=&#34;locate-absolute-home-folder-on-all-os&#34;&gt;Locate absolute home folder on all OS&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from os.path import expanduser
+print(expanduser(&amp;quot;~&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;On Windows&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;C:\\Users\\j35`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;On Mac&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&#39;/Users/j35&#39;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How python Class properties work</title>
       <link>/post/python_class_properties/</link>
       <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
@@ -1592,50 +1618,6 @@ class FileHandler(object):
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_applications/screen1.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to create a DOI linked to any python library</title>
-      <link>/post/create_doi/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/create_doi/</guid>
-      <description>
-
-&lt;p&gt;The best way to reference work done by others is by using their DOI (Digital Object Identifier). This is easy for
-paper publication but not as easy for software, until now. Thanks to &lt;a href=&#34;https://zenodo.org/&#34; target=&#34;_blank&#34;&gt;zenodo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here are the steps to create a DOI for your python library&lt;/p&gt;
-
-&lt;h2 id=&#34;step-1-create-an-account-on-zenodo-https-zenodo-org&#34;&gt;Step 1 - Create an account on &lt;a href=&#34;https://zenodo.org/&#34; target=&#34;_blank&#34;&gt;zenodo&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;step-2-link-your-application&#34;&gt;Step 2 - Link your application&lt;/h2&gt;
-
-&lt;p&gt;In this example, I&amp;rsquo;m using my github account. By doing so, I am able to automatically see all my github repository by
-clicking the &lt;strong&gt;GitHub&lt;/strong&gt; button in the menu, on the left side of the zenodo web page.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then you can just turn On or Off the button next to your repository to make the connection&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen3.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;step-3-create-release-of-github-project&#34;&gt;Step 3 - Create release of GitHub project&lt;/h2&gt;
-
-&lt;p&gt;Go back to your GitHub project and create a &lt;strong&gt;release&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen4.png&#39; /&gt;
-&lt;img src=&#39;/img/posts/create_doi/screen5.png&#39; /&gt;
-&lt;img src=&#39;/img/posts/create_doi/screen6.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;step-4-check&#34;&gt;Step 4 - Check&lt;/h2&gt;
-
-&lt;p&gt;If you go back to the &lt;strong&gt;zenodo&lt;/strong&gt; web site, you should see the new DOI created for the release you juste made.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_doi/screen7.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     

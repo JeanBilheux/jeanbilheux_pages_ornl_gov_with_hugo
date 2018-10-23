@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fits on Jean Bilheux</title>
+    <link>/tags/fits/</link>
+    <description>Recent content in fits on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 18 Jan 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/fits/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to create a movie from a stack of images</title>
+      <link>/post/create_movie/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/create_movie/</guid>
+      <description>This guide will show you how to create a simple movie (.avi) from a stack of images using ImageJ.
+Step 1 - Go to the ORNL CG1D Analysis computer This step is described in detail in our Neutron Imaging Tutorial web page - Connect to our computer.
+Step 2 - Start ImageJ Navigate to the ImageJ program from the menu
+and then click OK to close the dialog box that pops up.</description>
+    </item>
+    
+  </channel>
+</rss>

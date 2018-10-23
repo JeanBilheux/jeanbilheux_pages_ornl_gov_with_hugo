@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sphinx on Jean Bilheux</title>
+    <link>/tags/sphinx/</link>
+    <description>Recent content in sphinx on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 09 Jan 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/sphinx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automatically convert notebooks into html page for documentation using sphinx</title>
+      <link>/post/convert_notebooks_to_html_pages/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/convert_notebooks_to_html_pages/</guid>
+      <description>I&amp;rsquo;m going to show you here how you can easily create an HTML document from a notebook.
+1 - First thing you need is make sure your notebook has a title
+# this is my title  Then, make sure that all the other headings of the notebooks have a lower hierarchy.
+2 - Then you will need to import the following python libraries
+&amp;gt; pip install sphinx &amp;gt; pip install nbconvert &amp;gt; pip install pandoc &amp;gt; pip install latex &amp;gt; pip install nbsphinx  Somehow, I had to use conda for the pandoc library to work.</description>
+    </item>
+    
+  </channel>
+</rss>

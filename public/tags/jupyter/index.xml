@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jupyter on Jean Bilheux</title>
+    <link>/tags/jupyter/</link>
+    <description>Recent content in jupyter on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 09 Jan 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automatically convert notebooks into html page for documentation using sphinx</title>
+      <link>/post/convert_notebooks_to_html_pages/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/convert_notebooks_to_html_pages/</guid>
+      <description>I&amp;rsquo;m going to show you here how you can easily create an HTML document from a notebook.
+1 - First thing you need is make sure your notebook has a title
+# this is my title  Then, make sure that all the other headings of the notebooks have a lower hierarchy.
+2 - Then you will need to import the following python libraries
+&amp;gt; pip install sphinx &amp;gt; pip install nbconvert &amp;gt; pip install pandoc &amp;gt; pip install latex &amp;gt; pip install nbsphinx  Somehow, I had to use conda for the pandoc library to work.</description>
+    </item>
+    
+    <item>
+      <title>Create a Target type tool in matplotlib</title>
+      <link>/post/target_tool_in_matplotlib/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/target_tool_in_matplotlib/</guid>
+      <description>In one of my project, I had to select, for various images, the best center of a circular object. I came up with the following solution that, when used with the jupyter notebooks widgets, helps finding the best center of the object.
+Here is such an image where we need to find the center. In this case, it&amp;rsquo;s pretty obvious, but in real cases it&amp;rsquo;s much more complicated so this tool should really help.</description>
+    </item>
+    
+    <item>
+      <title>What my .gitignore file looks like</title>
+      <link>/post/my_gitignore_file/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/my_gitignore_file/</guid>
+      <description>When working with notebooks and python projects, here is what my .gitignore file looks like.
+__pycache__ *.py[cod] .ipynb* .coverage /cover/* # mac .DS_Store .cache # Packages *.egg *.egg-info dist build eggs parts bin var sdist MANIFEST # Unit test / coverage reports .coverage  </description>
+    </item>
+    
+  </channel>
+</rss>
