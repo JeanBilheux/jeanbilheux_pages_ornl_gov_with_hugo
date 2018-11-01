@@ -11,6 +11,82 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Right Click Menu in QTable</title>
+      <link>/post/right_click_menu_in_pyqt_table/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/right_click_menu_in_pyqt_table/</guid>
+      <description>
+
+&lt;p&gt;How to get a &lt;strong&gt;right click menu&lt;/strong&gt; from a QTable in PyQt&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_qmenu/final_menu.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To be able to have a right click menu in a QTable (PyQt), you need to follow the following few steps&lt;/p&gt;
+
+&lt;h3 id=&#34;turn-on-custom-context-menu&#34;&gt;Turn on Custom Context Menu&lt;/h3&gt;
+
+&lt;p&gt;In QtDesigner, and in the &lt;strong&gt;property editor&lt;/strong&gt; select in the &lt;strong&gt;contextMenuPolicy&lt;/strong&gt; the option &lt;strong&gt;CustomContextMenu&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_qmenu/qtdesigner_setup_1.png&#39; /&gt;
+&lt;img src=&#39;/img/posts/pyqt_qmenu/qtdesigner_setup_2.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;connect-custom-context-menu-signal&#34;&gt;Connect Custom Context Menu Signal&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_qmenu/signal_editor.png&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;catch-signal-in-main-code&#34;&gt;Catch Signal in Main Code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;...
+    def h3_table_right_click(self, position):
+         o_h3_table = H3TableHandler(parent=self)
+         o_h3_table.right_click()
+
+...
+
+class H3TableHandler:
+
+    def __init__(self, parent=None):
+        self.parent = parent
+
+    def right_click(self):
+        #bar = self.parent.menuBar()
+        top_menu = QMenu(self.parent)
+
+        menu = top_menu.addMenu(&amp;quot;Menu&amp;quot;)
+        config = menu.addMenu(&amp;quot;Configuration ...&amp;quot;)
+
+        _load = config.addAction(&amp;quot;&amp;amp;Load ...&amp;quot;)
+        _save = config.addAction(&amp;quot;&amp;amp;Save ...&amp;quot;)
+
+        config.addSeparator()
+
+        config1 = config.addAction(&amp;quot;Config1&amp;quot;)
+        config2 = config.addAction(&amp;quot;Config2&amp;quot;)
+        config3 = config.addAction(&amp;quot;Config3&amp;quot;)
+
+        action = menu.exec_(QtGui.QCursor.pos())
+
+        if action == _load:
+            # do this
+            pass
+        elif action == _save:
+            # do this
+            pass
+        elif action == config1:
+            # do this
+            pass
+        elif action == config2:
+            # do this
+            pass
+        elif action == config3:
+            # do this
+            pass
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Python Tricks</title>
       <link>/post/python_tricks/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 -0400</pubDate>
@@ -1043,138 +1119,6 @@ self.ui.table_roi.blockSignals(False)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_block_signals/screen1.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Automatically convert notebooks into html page for documentation using sphinx</title>
-      <link>/post/convert_notebooks_to_html_pages/</link>
-      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/convert_notebooks_to_html_pages/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m going to show you here how you can easily create an HTML document from a notebook.&lt;/p&gt;
-
-&lt;p&gt;1 - First thing you need is make sure your notebook has a title&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# this is my title
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then, make sure that all the other headings of the notebooks have a lower hierarchy.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/convert_notebooks_to_html_pages/screen1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2 - Then you will need to import the following python libraries&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; pip install sphinx
-&amp;gt; pip install nbconvert
-&amp;gt; pip install pandoc
-&amp;gt; pip install latex
-&amp;gt; pip install nbsphinx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;Somehow, I had to use conda for the &lt;strong&gt;pandoc&lt;/strong&gt; library to work.&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; conda install pandoc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;3 -  Move your notebooks into the source folder, next to the &lt;em&gt;index.rst&lt;/em&gt; file for example&lt;/p&gt;
-
-&lt;p&gt;4 -  Modify the &lt;em&gt;index.rst&lt;/em&gt; by adding the name of the notebooks to display&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/convert_notebooks_to_html_pages/screen2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;This example is based on the &lt;a href=&#34;https://github.com/ornlneutronimaging/NeuNorm&#34; target=&#34;_blank&#34;&gt;NeuNorm&lt;/a&gt; project.&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-&lt;p&gt;5 - Let&amp;rsquo;s now modify the &lt;strong&gt;conf.py&lt;/strong&gt; file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;extensions = [&#39;sphinx.ext.autodoc&#39;,
-              &#39;nbsphinx&#39;,
-              &#39;sphinx.ext.mathjax&#39;,
-              &#39;sphinx.ext.githubpages&#39;,
-              &#39;IPython.sphinxext.ipython_console_highlighting
-
-...
-
-source_suffix = [&#39;.rst&#39;, &#39;.ipynb&#39;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;6 - Everything we did so far now allows us to insert the notebook inside the documentation, but only locally. To
-make it work via &lt;em&gt;ReadTheDocs&lt;/em&gt;, we need the next step describes here.&lt;/p&gt;
-
-&lt;p&gt;Create a &lt;strong&gt;readthedocs.yml&lt;/strong&gt; file into our source tree&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# REad the Docs config
-
-# python version
-python:
-  version: 3.5
-  pip_install: True
-
-# build a PDF
-formats:
-  - none
-
-# use a conda environment file
-conda:
-  file: documentation/readthedocs-environment.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then, add another file called &lt;strong&gt;readthedocs-environments.yml&lt;/strong&gt; inside our documentation folder&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;name: NeuNorm
-channels:
-  - conda-forge
-dependencies:
-  - python==3.5
-  - pandoc
-  - nbformat
-  - jupyter_client
-  - ipython
-  - nbconvert
-  - sphinx&amp;gt;=1.5.1
-  - ipykernel
-  - sphinx_rtd_theme
-  - pip:
-    - nbsphinx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;7 - Let&amp;rsquo;s change the &lt;em&gt;Admin&lt;/em&gt; settings in ReadTheDocs as followed&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Go to &lt;strong&gt;Advanced Settings&lt;/strong&gt; of &lt;strong&gt;Admin&lt;/strong&gt; menu.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Specify the name of the python configuration file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;documentation/source/conf.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;and also the python interpreter&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;CPython 3.x
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;8 - Now, let&amp;rsquo;s build the documentation&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; python3 -m sphinx shource build
-&amp;gt; make html
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and here is the local documentation produced&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/convert_notebooks_to_html_pages/screen3.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and here is the ReadTheDocs documentation created&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/convert_notebooks_to_html_pages/screen4.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     

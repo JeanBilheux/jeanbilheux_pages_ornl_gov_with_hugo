@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/right_click_menu_in_pyqt_table/</loc>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/python_tricks/</loc>
       <lastmod>2018-10-23T00:00:00-04:00</lastmod>
     </url>
@@ -398,6 +407,16 @@
     
     <url>
     
+      <loc>/tags/qmenu/</loc>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/qpushbutton/</loc>
       <lastmod>2018-05-11T00:00:00-04:00</lastmod>
       <priority>0</priority>
@@ -639,7 +658,7 @@
     <url>
     
       <loc>/tags/pyqt/</loc>
-      <lastmod>2018-10-16T00:00:00-04:00</lastmod>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -669,7 +688,7 @@
     <url>
     
       <loc>/tags/python/</loc>
-      <lastmod>2018-10-23T00:00:00-04:00</lastmod>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -729,7 +748,7 @@
     <url>
     
       <loc>/tags/widget/</loc>
-      <lastmod>2018-02-05T00:00:00-05:00</lastmod>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     

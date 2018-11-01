@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>QMenu</title>
+      <link>/tags/qmenu/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/qmenu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>QPushButton</title>
       <link>/tags/qpushbutton/</link>
       <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
@@ -240,7 +249,7 @@
     <item>
       <title>pyqt</title>
       <link>/tags/pyqt/</link>
-      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
       
       <guid>/tags/pyqt/</guid>
       <description></description>
@@ -267,7 +276,7 @@
     <item>
       <title>python</title>
       <link>/tags/python/</link>
-      <pubDate>Tue, 23 Oct 2018 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
       
       <guid>/tags/python/</guid>
       <description></description>
@@ -321,7 +330,7 @@
     <item>
       <title>widget</title>
       <link>/tags/widget/</link>
-      <pubDate>Mon, 05 Feb 2018 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
       
       <guid>/tags/widget/</guid>
       <description></description>

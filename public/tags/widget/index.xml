@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 05 Feb 2018 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/tags/widget/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Right Click Menu in QTable</title>
+      <link>/post/right_click_menu_in_pyqt_table/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/right_click_menu_in_pyqt_table/</guid>
+      <description>How to get a right click menu from a QTable in PyQt
+To be able to have a right click menu in a QTable (PyQt), you need to follow the following few steps
+Turn on Custom Context Menu In QtDesigner, and in the property editor select in the contextMenuPolicy the option CustomContextMenu.
+Connect Custom Context Menu Signal Catch Signal in Main Code ... def h3_table_right_click(self, position): o_h3_table = H3TableHandler(parent=self) o_h3_table.</description>
+    </item>
     
     <item>
       <title>How to format the notebook widgets</title>
