@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Multi rows table (QTableWidget)and Qtree interacting together</title>
+      <link>/post/table_tree_prototype/</link>
+      <pubDate>Tue, 06 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/table_tree_prototype/</guid>
+      <description>For one of my projects, I needed to answer the following requirements:
+ table with 3 rows of labels (each row of label is a submenu of the row above) resizing any of the column will resize accordingly the other rows scroll of any of the label rows will scroll the other labels tree on the size will allow to hide/show any of the column hidding any of the tree should automatically hide the leaves under it if hidding all the leaves of a branch, automatically hide the branch parent user should have the option to save and reload a configuration full reset of table is available user can remove configurations he created  Because QTableWidget does not allow several rows of label, I had to built this feature from scratch.</description>
+    </item>
+    
+    <item>
       <title>Right Click Menu in QTable</title>
       <link>/post/right_click_menu_in_pyqt_table/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>

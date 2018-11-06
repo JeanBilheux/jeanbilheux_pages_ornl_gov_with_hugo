@@ -11,6 +11,38 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Multi rows table (QTableWidget)and Qtree interacting together</title>
+      <link>/post/table_tree_prototype/</link>
+      <pubDate>Tue, 06 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/table_tree_prototype/</guid>
+      <description>&lt;p&gt;For one of my projects, I needed to answer the following requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;table with 3 rows of labels (each row of label is a submenu of the row above)&lt;/li&gt;
+&lt;li&gt;resizing any of the column will resize accordingly the other rows&lt;/li&gt;
+&lt;li&gt;scroll of any of the label rows will scroll the other labels&lt;/li&gt;
+&lt;li&gt;tree on the size will allow to hide/show any of the column&lt;/li&gt;
+&lt;li&gt;hidding any of the tree should automatically hide the leaves under it&lt;/li&gt;
+&lt;li&gt;if hidding all the leaves of a branch, automatically hide the branch parent&lt;/li&gt;
+&lt;li&gt;user should have the option to save and reload a configuration&lt;/li&gt;
+&lt;li&gt;full reset of table is available&lt;/li&gt;
+&lt;li&gt;user can remove configurations he created&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Because QTableWidget does not allow several rows of label, I had to built this feature from scratch.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This project is available on our python notebooks repository (&lt;a href=&#34;https://github.com/neutronimaging/python_notebooks&#34; target=&#34;_blank&#34;&gt;https://github.com/neutronimaging/python_notebooks&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Once installed (with dependencies), start the &lt;strong&gt;addie.py&lt;/strong&gt; notebook and run the cells.&lt;/p&gt;
+
+&lt;p&gt;Here is the program in action&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/addie_table/addie_table_prototype.gif&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Right Click Menu in QTable</title>
       <link>/post/right_click_menu_in_pyqt_table/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
@@ -1088,37 +1120,6 @@ If order is wrong, you will need to rename them.&lt;/p&gt;
 &lt;p&gt;A progress bar will display the status of the file creation.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step10.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to lock all the signals of a widget</title>
-      <link>/post/pyqt_block_signals/</link>
-      <pubDate>Fri, 12 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/pyqt_block_signals/</guid>
-      <description>&lt;p&gt;I had to work on a project where the modification of any cell of a big table had to trigger an &lt;strong&gt;event&lt;/strong&gt;. But there were
-cases where I had to repopulate the entire table. The problem of doing so is that each cell will then trigger the &lt;strong&gt;event&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The solution is very simple. All you need is to &lt;strong&gt;block all the signals&lt;/strong&gt; before updating the table (for example) and then
-&lt;strong&gt;unlock the signals&lt;/strong&gt; once it&amp;rsquo;s done.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;try:
-    from PyQt4 import QtGui
-except ImportError:
-    from PyQt5 import QtGui
-
-...
-
-# table_roi is the name of my ui
-self.ui.table_roi.blockSignals(True)
-
-# populate table
-
-self.ui.table_roi.blockSignals(False)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/pyqt_block_signals/screen1.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     
