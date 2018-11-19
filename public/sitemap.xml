@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/post/python_logging/</loc>
+      <lastmod>2018-11-07T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/table_tree_prototype/</loc>
       <lastmod>2018-11-06T00:00:00-05:00</lastmod>
     </url>
@@ -367,107 +376,17 @@
     
     <url>
     
-      <loc>/categories/</loc>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/gui/</loc>
-      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/</loc>
-      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/project/</loc>
-      <lastmod>2018-01-19T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/publication_types/</loc>
-      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/qmenu/</loc>
-      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/qpushbutton/</loc>
-      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/qtablewidget/</loc>
-      <lastmod>2018-11-06T00:00:00-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/qtree/</loc>
-      <lastmod>2018-11-06T00:00:00-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/tags/braggedge/</loc>
       <lastmod>2018-01-09T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -508,6 +427,16 @@
     
       <loc>/tags/fits/</loc>
       <lastmod>2018-01-18T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/gui/</loc>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -576,6 +505,16 @@
     
     <url>
     
+      <loc>/</loc>
+      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/jupyter/</loc>
       <lastmod>2018-01-09T00:00:00-05:00</lastmod>
       <priority>0</priority>
@@ -588,6 +527,16 @@
     
       <loc>/tags/library/</loc>
       <lastmod>2018-10-16T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/logging/</loc>
+      <lastmod>2018-11-07T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -676,8 +625,28 @@
     
     <url>
     
+      <loc>/project/</loc>
+      <lastmod>2018-01-19T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/property/</loc>
       <lastmod>2018-05-23T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/</loc>
+      <lastmod>2018-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -717,6 +686,46 @@
     <url>
     
       <loc>/tags/python/</loc>
+      <lastmod>2018-11-07T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/qmenu/</loc>
+      <lastmod>2018-11-01T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/qpushbutton/</loc>
+      <lastmod>2018-05-11T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/qtablewidget/</loc>
+      <lastmod>2018-11-06T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/qtree/</loc>
       <lastmod>2018-11-06T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
@@ -728,6 +737,16 @@
     
       <loc>/tags/sphinx/</loc>
       <lastmod>2018-01-09T00:00:00-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

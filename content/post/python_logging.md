@@ -292,7 +292,7 @@ and create a file
 It's also possible to configure our logger using a **config file** (or a
 dictionary) and loading it using *fileConfig()* (or *dictConfig()*).
 
-Example of a config file
+Example of a config file called *file.conf*
 ```python
 [loggers]
 keys=root,sampleLogger
@@ -336,4 +336,26 @@ example:
 
     - logger_root
     - handler_consoleHandler
+    
+Here is the code that allow to load this configuration of the logger
+
+```python
+import logging
+import logging.config
+
+logging.config.fileConfig(fname='file.conf', disable_existing_loggers=False)
+
+# Get the logger specified in the file
+logger = logging.getLogger(__name__)
+
+logger.debug('This is a debug message')
+```
+
+And here is the output it will produce
+
+```python
+2018-07-13 13:57:45,467 - __main__ - DEBUG - This is a debug message
+```
+
+
      
