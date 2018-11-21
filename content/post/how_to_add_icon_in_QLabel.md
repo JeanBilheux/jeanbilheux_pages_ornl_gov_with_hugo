@@ -1,14 +1,14 @@
 +++
 date = 2018-11-21
 draft = false
-tags = ["python", "pyqt", "widgets", "QDesigner"]
-title = "Add an icon inside a QLabel via QDesigner"
-summary = """How to take advantage of the QDesigner resource browser to add an icon inside a label"""
+tags = ["python", "pyqt", "widgets"]
+title = "Add an icon inside a QLabel using Qt resource"
+summary = """How to take advantage of Qt resources to add an icon inside a label"""
 +++
 
 There are many ways to add images or icons on top of buttons or label. Usually the most painful part is
- locating the file in the program and managing the location of those images. QDesigner comes with a **resource
- browser** that facilitates this storage. The way I'm doing it may look strange (and redundant sometimes) 
+ locating the file in the program and managing the location of those images. Qt comes with a **resource** tool 
+ that facilitates this storage. The way I'm doing it may look strange (and redundant sometimes) 
  but at least it works for me so I will stick to it, until I see a better way.
  
 ## Design your icon
@@ -31,7 +31,8 @@ This icon is obviously too big. I use **photoshop** to resize it.
  
 ## Bring icon in application
 
-I found that I had to to 2 steps that seem to do the same thing but are both necessary to make it work
+The following step should be possible directly from QtDesigner (using **resource browser) but found out that
+I always end up having to do it manually anyway. 
 
 ### Copy icon in **icons** folder
 
@@ -53,20 +54,6 @@ If you do not have this folder, create it at the root of your project. This fold
 
 - You need to edit manually this file and add the new icon (<file>search_icon.png</file> in this case).
 - then copy your icon in this folder
-
-### Import icon in QDesigner
-
-In QDesigner, 
-
- - open the **resource browser** window
- - make sure you select your application window (otherwise the resource browser will be empty)
- - click **edit resources** (top left icon)
- - click **add files** (next to last icon at the bottom - move your mouse over the buttons to learn what they do)
- - browse for your icon (from the icons folder (see previous step))
- - click **OK**
-
-<img src='/img/posts/how_to_add_icon_in_qlabel/add_icon_in_qdesigner.gif' />
-
 
 ### Building the icons_rc.py file
 

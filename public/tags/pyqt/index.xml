@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>Add an icon inside a QLabel via QDesigner</title>
+      <title>Add an icon inside a QLabel using Qt resource</title>
       <link>/post/how_to_add_icon_in_qlabel/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 -0500</pubDate>
       
       <guid>/post/how_to_add_icon_in_qlabel/</guid>
-      <description>There are many ways to add images or icons on top of buttons or label. Usually the most painful part is locating the file in the program and managing the location of those images. QDesigner comes with a resource browser that facilitates this storage. The way I&amp;rsquo;m doing it may look strange (and redundant sometimes) but at least it works for me so I will stick to it, until I see a better way.</description>
+      <description>There are many ways to add images or icons on top of buttons or label. Usually the most painful part is locating the file in the program and managing the location of those images. Qt comes with a resource tool that facilitates this storage. The way I&amp;rsquo;m doing it may look strange (and redundant sometimes) but at least it works for me so I will stick to it, until I see a better way.</description>
     </item>
     
     <item>

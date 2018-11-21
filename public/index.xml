@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Add an icon inside a QLabel via QDesigner</title>
+      <title>Add an icon inside a QLabel using Qt resource</title>
       <link>/post/how_to_add_icon_in_qlabel/</link>
       <pubDate>Wed, 21 Nov 2018 00:00:00 -0500</pubDate>
       
@@ -19,8 +19,8 @@
       <description>
 
 &lt;p&gt;There are many ways to add images or icons on top of buttons or label. Usually the most painful part is
- locating the file in the program and managing the location of those images. QDesigner comes with a &lt;strong&gt;resource
- browser&lt;/strong&gt; that facilitates this storage. The way I&amp;rsquo;m doing it may look strange (and redundant sometimes)
+ locating the file in the program and managing the location of those images. Qt comes with a &lt;strong&gt;resource&lt;/strong&gt; tool
+ that facilitates this storage. The way I&amp;rsquo;m doing it may look strange (and redundant sometimes)
  but at least it works for me so I will stick to it, until I see a better way.&lt;/p&gt;
 
 &lt;h2 id=&#34;design-your-icon&#34;&gt;Design your icon&lt;/h2&gt;
@@ -45,7 +45,8 @@
 
 &lt;h2 id=&#34;bring-icon-in-application&#34;&gt;Bring icon in application&lt;/h2&gt;
 
-&lt;p&gt;I found that I had to to 2 steps that seem to do the same thing but are both necessary to make it work&lt;/p&gt;
+&lt;p&gt;The following step should be possible directly from QtDesigner (using **resource browser) but found out that
+I always end up having to do it manually anyway.&lt;/p&gt;
 
 &lt;h3 id=&#34;copy-icon-in-icons-folder&#34;&gt;Copy icon in &lt;strong&gt;icons&lt;/strong&gt; folder&lt;/h3&gt;
 
@@ -68,21 +69,6 @@
 &lt;li&gt;You need to edit manually this file and add the new icon (&lt;file&gt;search_icon.png&lt;/file&gt; in this case).&lt;/li&gt;
 &lt;li&gt;then copy your icon in this folder&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&#34;import-icon-in-qdesigner&#34;&gt;Import icon in QDesigner&lt;/h3&gt;
-
-&lt;p&gt;In QDesigner,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;open the &lt;strong&gt;resource browser&lt;/strong&gt; window&lt;/li&gt;
-&lt;li&gt;make sure you select your application window (otherwise the resource browser will be empty)&lt;/li&gt;
-&lt;li&gt;click &lt;strong&gt;edit resources&lt;/strong&gt; (top left icon)&lt;/li&gt;
-&lt;li&gt;click &lt;strong&gt;add files&lt;/strong&gt; (next to last icon at the bottom - move your mouse over the buttons to learn what they do)&lt;/li&gt;
-&lt;li&gt;browse for your icon (from the icons folder (see previous step))&lt;/li&gt;
-&lt;li&gt;click &lt;strong&gt;OK&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/add_icon_in_qdesigner.gif&#39; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;building-the-icons-rc-py-file&#34;&gt;Building the icons_rc.py file&lt;/h3&gt;
 
