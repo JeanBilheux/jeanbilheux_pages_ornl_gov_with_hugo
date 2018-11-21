@@ -91,6 +91,15 @@ self.ui.label_1.setPixmap(QtGui.QPixmap(&amp;quot;:/MPL Toolbar/search_icon.png&
 ...
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;p&gt;in case you are working with a QPushButton instead of a QLabel, here is the way to do the same thing&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;self.ui.button_1.setIcon(QtGui.QIcon(&amp;quot;:/MPL Toolbar/search_icon.png&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
 &lt;p&gt;and here is what the application will look like !&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/application_preview.png&#39; /&gt;&lt;/p&gt;
