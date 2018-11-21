@@ -22,6 +22,18 @@
     </item>
     
     <item>
+      <title>Python logging module 1.0.1</title>
+      <link>/post/python_logging/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/python_logging/</guid>
+      <description>This tutorial is a short version of the following full tutorial
+Quick Demo First, we need to import the library to be able to use it
+import logging  Then to use it
+import logging logging.debug(&#39;This is a debug message&#39;) logging.info(&#39;This is an info message&#39;) logging.warning(&#39;This is a warning message&#39;) logging.error(&#39;This is an error message&#39;) logging.critical(&#39;This is a critical message&#39;) def test_me(): logging.debug(&#39;This is a debug message&#39;) logging.info(&#39;This is an info message&#39;) logging.</description>
+    </item>
+    
+    <item>
       <title>Multi rows table (QTableWidget)and Qtree interacting together</title>
       <link>/post/table_tree_prototype/</link>
       <pubDate>Tue, 06 Nov 2018 00:00:00 -0500</pubDate>

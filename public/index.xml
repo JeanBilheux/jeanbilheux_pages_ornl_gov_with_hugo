@@ -112,6 +112,346 @@ self.ui.label_1.setPixmap(QtGui.QPixmap(&amp;quot;:/MPL Toolbar/search_icon.png&
     </item>
     
     <item>
+      <title>Python logging module 1.0.1</title>
+      <link>/post/python_logging/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/python_logging/</guid>
+      <description>
+
+&lt;p&gt;This tutorial is a short version of the following &lt;a href=&#34;https://realpython.com/python-logging/&#34; target=&#34;_blank&#34;&gt;full tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;quick-demo&#34;&gt;Quick Demo&lt;/h2&gt;
+
+&lt;p&gt;First, we need to import the library to be able to use it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then to use it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+logging.debug(&#39;This is a debug message&#39;)
+logging.info(&#39;This is an info message&#39;)
+logging.warning(&#39;This is a warning message&#39;)
+logging.error(&#39;This is an error message&#39;)
+logging.critical(&#39;This is a critical message&#39;)
+
+def test_me():
+    logging.debug(&#39;This is a debug message&#39;)
+    logging.info(&#39;This is an info message&#39;)
+    logging.warning(&#39;This is a warning message&#39;)
+    logging.error(&#39;This is an error message&#39;)
+    logging.critical(&#39;This is a critical message&#39;)
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    test_me()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output of this program will be&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WARNING:root:This is a warning message
+ERROR:root:This is an error message
+CRITICAL:root:This is a critical message
+WARNING:root:This is a warning message
+ERROR:root:This is an error message
+CRITICAL:root:This is a critical message
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By default, the logging module logs only everything that is WARNING level or higher. But it&amp;rsquo;s possible to change
+this by playing with the &lt;strong&gt;basicConfig&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-configurations&#34;&gt;Basic Configurations&lt;/h2&gt;
+
+&lt;p&gt;Here are some of the main features of the configurations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;level&lt;/strong&gt;: The root logger will be set to the specified severity level.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt;: This specifies the file.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;filemode&lt;/strong&gt;: If filename is given, the file is opened in this mode. The default is a, which means append.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;format&lt;/strong&gt;: This is the format of the log message.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;To now log everything at or above DEBUG&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt; import logging
+
+ logging.basicConfig(level=logging.DEBUG) 
+ logging.debug(&amp;quot;This will get logged now&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;output will be&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt; DEBUG:root:This will get logged now
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;### logging into a file&lt;/p&gt;
+
+&lt;p&gt;If we want to log everything in a file instead of just in the terminal&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+logging.basicConfig(filename=&#39;/Users/j35/Desktop/app.log&#39;, filemode=&#39;w&#39;, format=&#39;%(name)s - %(levelname)s - %(message)s&#39;)
+logging.warning(&amp;quot;This will get logged to a file&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the code I used to test it&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+def try_me():
+    logging.debug(&#39;This is a debug message&#39;)
+    logging.info(&#39;This is an info message&#39;)
+    logging.warning(&#39;This is a warning message&#39;)
+    logging.error(&#39;This is an error message&#39;)
+    logging.critical(&#39;This is a critical message&#39;)
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+
+    logging.basicConfig(filename=&#39;/Users/j35/Desktop/app.cfg&#39;,
+                        filemode=&#39;w&#39;,
+                        format=&#39;%(name)s - %(levelname)s - %(message)s&#39;)
+    logging.warning(&amp;quot;This should go to a file&amp;quot;)
+    
+    try_me()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and here is the &lt;em&gt;app.cfg&lt;/em&gt; file created&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;root - WARNING - This should go to a file
+root - WARNING - This is a warning message
+root - ERROR - This is an error message
+root - CRITICAL - This is a critical message
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To get a full list of all the parameters that can be set, go &lt;a href=&#34;https://docs.python.org/3/library/logging.html#logging.basicConfig&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-personalize-the-output&#34;&gt;How to personalize the output&lt;/h2&gt;
+
+&lt;p&gt;To get a full list of all the parameters we can simply retrieve and display in the message, go &lt;a href=&#34;https://docs.python.org/3/library/logging.html#logrecord-attributes&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But here is an example of what we can do using those parameters&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+logging.basicConfig(format=&#39;%(process)d-%(levelname)s-%(message)s&#39;)
+logging.warning(&#39;This is a Warning&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;this will produce the following output&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;18472-WARNING-This is a Warning
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example, we add the date and time&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+logging.basicConfig(format=&#39;%(asctime)s - %(message)s&#39;, level=logging.INFO)
+logging.info(&#39;Admin logged in&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;2018-07-11 20:12:06,288 - Admin logged in
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;logging-our-own-data&#34;&gt;Logging our own data&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+name = &#39;John&#39;
+logging.error(&#39;%s raised an error&#39;, name)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;ERROR:root:John raised an error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or even better using the new python 3.6 format&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+name = &#39;John&#39;
+logging.error(f&#39;{name} raised an error&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;capturing-exceptions&#34;&gt;Capturing Exceptions&lt;/h3&gt;
+
+&lt;p&gt;It&amp;rsquo;s also possible to capture the entire stack trace by turning on the &lt;strong&gt;exc_info&lt;/strong&gt; flag as shown here&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+a = 5
+b = 0
+
+try:
+  c = a / b
+except Exception as e:
+  logging.error(&amp;quot;Exception occurred&amp;quot;, exc_info=True)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;ERROR:root:Exception occurred
+Traceback (most recent call last):
+  File &amp;quot;exceptions.py&amp;quot;, line 6, in &amp;lt;module&amp;gt;
+    c = a / b
+ZeroDivisionError: division by zero
+[Finished in 0.2s]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can also use this, &lt;strong&gt;if we call it from inside an exception handler&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+
+a = 5
+b = 0
+try:
+  c = a / b
+except Exception as e:
+  logging.exception(&amp;quot;Exception occurred&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and this will produce te same output.&lt;/p&gt;
+
+&lt;h2 id=&#34;classes-and-functions&#34;&gt;Classes and functions&lt;/h2&gt;
+
+&lt;p&gt;In a real project, we should define our own &lt;strong&gt;logger&lt;/strong&gt; by creating an object of the logger class.&lt;/p&gt;
+
+&lt;p&gt;Unlike the root logger, a custom logger will not display by default the name of the logger&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+logger = logging.getLogger(&#39;example_logger&#39;)
+logger.warning(&#39;This is a warning&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;which produces the following output&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;This is a warning
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;WARNING&lt;/p&gt;
+
+&lt;p&gt;unlike the root logger, a custom logger can not be configured using &lt;strong&gt;basicConfig()&lt;/strong&gt;, instead we need to use &lt;strong&gt;Handlers&lt;/strong&gt;
+and &lt;strong&gt;Formatters&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;using-handlers&#34;&gt;Using Handlers&lt;/h3&gt;
+
+&lt;p&gt;Handlers are required when we want to configure our own logger and for example, sent the various messages (error, warnings, &amp;hellip;)
+to different outputs (screen, http, file, &amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;Example: Let&amp;rsquo;s create a logger that record everything with level WARNING and above to the screen, but everything with
+level ERROR should also be saved to a file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# logging_example.py
+
+import logging
+
+# Create a custom logger
+logger = logging.getLogger(__name__)
+
+# Create handlers
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler(&#39;file.log&#39;)
+c_handler.setLevel(logging.WARNING)
+f_handler.setLevel(logging.ERROR)
+
+# Create formatters and add it to handlers
+c_format = logging.Formatter(&#39;%(name)s - %(levelname)s - %(message)s&#39;)
+f_format = logging.Formatter(&#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;)
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+
+# Add handlers to the logger
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+
+logger.warning(&#39;This is a warning&#39;)
+logger.error(&#39;This is an error&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and that produce the following output&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;__main__ - WARNING - This is a warning
+__main__ - ERROR - This is an error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and create a file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# file.log
+2018-08-03 16:12:21,723 - __main__ - ERROR - This is an error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;other-configuration-methods&#34;&gt;Other Configuration Methods&lt;/h3&gt;
+
+&lt;p&gt;It&amp;rsquo;s also possible to configure our logger using a &lt;strong&gt;config file&lt;/strong&gt; (or a
+dictionary) and loading it using &lt;em&gt;fileConfig()&lt;/em&gt; (or &lt;em&gt;dictConfig()&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Example of a config file called &lt;em&gt;file.conf&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;[loggers]
+keys=root,sampleLogger
+
+[handlers]
+keys=consoleHandler
+
+[formatters]
+keys=sampleFormatter
+
+[logger_root]
+level=DEBUG
+handlers=consoleHandler
+
+[logger_sampleLogger]
+level=DEBUG
+handlers=consoleHandler
+qualname=sampleLogger
+propagate=0
+
+[handler_consoleHandler]
+class=StreamHandler
+level=DEBUG
+formatter=sampleFormatter
+args=(sys.stdout,)
+
+[formatter_sampleFormatter]
+format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example, there are:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* 2 loggers
+* 1 handler
+* 1 formatter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thye are configured by adding the word logger, handler and formatter
+before their name (with underscore)&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- logger_root
+- handler_consoleHandler
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the code that allow to load this configuration of the logger&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+import logging.config
+
+logging.config.fileConfig(fname=&#39;file.conf&#39;, disable_existing_loggers=False)
+
+# Get the logger specified in the file
+logger = logging.getLogger(__name__)
+
+logger.debug(&#39;This is a debug message&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is the output it will produce&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;2018-07-13 13:57:45,467 - __main__ - DEBUG - This is a debug message
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Multi rows table (QTableWidget)and Qtree interacting together</title>
       <link>/post/table_tree_prototype/</link>
       <pubDate>Tue, 06 Nov 2018 00:00:00 -0500</pubDate>
@@ -1117,43 +1457,6 @@ HTML(&amp;quot;&amp;quot;&amp;quot;
 
 &lt;/div&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>Neutron Imaging Official Web Site</title>
-      <link>/project/neutron_imaging_web_site/</link>
-      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/neutron_imaging_web_site/</guid>
-      <description>
-
-&lt;p&gt;Using &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework, I implemented the &lt;a href=&#34;https://neutronimaging.pages.ornl.gov&#34;&gt;
-Oak Ridge National Laboratory Neutron Imaging Web Site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
-
-&lt;p&gt;Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before
-coming to the facility. We used to try to answer those questions by email. This present some issues:
- * easy to miss some steps
- * previous users coming to the beamline hesitate in contacting us again
- * information we send can easily be out of date&lt;/p&gt;
-
-&lt;p&gt;So we decided to use centralize those information into a web site hosted by the Oak Ridge National Laboratory.&lt;/p&gt;
-
-&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
-
-&lt;p&gt;To implement this web site, I used the following tools:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework to built the web site.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-learn/en&#34;&gt;Hugo learn theme&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm&lt;/a&gt; for the implementation of the web site.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     

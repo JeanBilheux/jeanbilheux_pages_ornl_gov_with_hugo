@@ -14,6 +14,15 @@
     
     <url>
     
+      <loc>/post/python_logging/</loc>
+      <lastmod>2018-11-07T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/table_tree_prototype/</loc>
       <lastmod>2018-11-06T00:00:00-05:00</lastmod>
     </url>
@@ -607,6 +616,16 @@
     
       <loc>/tags/library/</loc>
       <lastmod>2018-10-16T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/logging/</loc>
+      <lastmod>2018-11-07T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
