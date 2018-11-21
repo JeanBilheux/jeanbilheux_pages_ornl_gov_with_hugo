@@ -11,6 +11,107 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Add an icon inside a QLabel via QDesigner</title>
+      <link>/post/how_to_add_icon_in_qlabel/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_add_icon_in_qlabel/</guid>
+      <description>
+
+&lt;p&gt;There are many ways to add images or icons on top of buttons or label. Usually the most painful part is
+ locating the file in the program and managing the location of those images. QDesigner comes with a &lt;strong&gt;resource
+ browser&lt;/strong&gt; that facilitates this storage. The way I&amp;rsquo;m doing it may look strange (and redundant sometimes)
+ but at least it works for me so I will stick to it, until I see a better way.&lt;/p&gt;
+
+&lt;h2 id=&#34;design-your-icon&#34;&gt;Design your icon&lt;/h2&gt;
+
+&lt;p&gt;Because I&amp;rsquo;m lazy, usually I find them on google images and simply resize them. It is important to
+ use a png (not jpeg) as png as a transparent background layer (jpeg does not). For this example I decided
+ to work with the following image found on the web.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/search_icon_original.png&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This icon is obviously too big. I use &lt;strong&gt;photoshop&lt;/strong&gt; to resize it.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;open image in photoshop&lt;/li&gt;
+&lt;li&gt;click **image/image size&lt;/li&gt;
+&lt;li&gt;specify pixels as units&lt;/li&gt;
+&lt;li&gt;enter new width (height will follow). You typically want something around 20 pixels wide.&lt;/li&gt;
+&lt;li&gt;save new image&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/how_to_resize_image.gif&#39; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;bring-icon-in-application&#34;&gt;Bring icon in application&lt;/h2&gt;
+
+&lt;p&gt;I found that I had to to 2 steps that seem to do the same thing but are both necessary to make it work&lt;/p&gt;
+
+&lt;h3 id=&#34;copy-icon-in-icons-folder&#34;&gt;Copy icon in &lt;strong&gt;icons&lt;/strong&gt; folder&lt;/h3&gt;
+
+&lt;p&gt;If you do not have this folder, create it at the root of your project. This folder should contain a
+&lt;strong&gt;icons.qrc&lt;/strong&gt; file that looks like this&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;lt;RCC&amp;gt;
+    &amp;lt;qresource prefix=&amp;quot;MPL Toolbar&amp;quot;&amp;gt;
+        &amp;lt;file&amp;gt;search_icon.png&amp;lt;/file&amp;gt;
+        &amp;lt;file&amp;gt;clear_icon.png&amp;lt;/file&amp;gt;
+        &amp;lt;file&amp;gt;splitter_icon.png&amp;lt;/file&amp;gt;
+        &amp;lt;file&amp;gt;go-home.png&amp;lt;/file&amp;gt;
+        &amp;lt;file&amp;gt;zoom-previous.png&amp;lt;/file&amp;gt;
+        ...
+    &amp;lt;/qresource&amp;gt;
+&amp;lt;/RCC&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You need to edit manually this file and add the new icon (&lt;file&gt;search_icon.png&lt;/file&gt; in this case).&lt;/li&gt;
+&lt;li&gt;then copy your icon in this folder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;import-icon-in-qdesigner&#34;&gt;Import icon in QDesigner&lt;/h3&gt;
+
+&lt;p&gt;In QDesigner,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;open the &lt;strong&gt;resource browser&lt;/strong&gt; window&lt;/li&gt;
+&lt;li&gt;make sure you select your application window (otherwise the resource browser will be empty)&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;edit resources&lt;/strong&gt; (top left icon)&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;add files&lt;/strong&gt; (next to last icon at the bottom - move your mouse over the buttons to learn what they do)&lt;/li&gt;
+&lt;li&gt;browse for your icon (from the icons folder (see previous step))&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;OK&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/add_icon_in_qdesigner.gif&#39; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;building-the-icons-rc-py-file&#34;&gt;Building the icons_rc.py file&lt;/h3&gt;
+
+&lt;p&gt;This file is necessary to be able to use the icons in the program. Simply type the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pyrcc4 ./icon.qrc -o addie/icons_rc.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;addie&lt;/em&gt; being the subfolder containing all the python code (name of the project).&lt;/p&gt;
+
+&lt;h3 id=&#34;load-the-image&#34;&gt;Load the image&lt;/h3&gt;
+
+&lt;p&gt;We should now be able to use the image in our code.&lt;/p&gt;
+
+&lt;p&gt;I usually load all my images in a &lt;strong&gt;init_widgets.py&lt;/strong&gt; method called just after bringing the ui to the screen.
+If we consider a label called &lt;strong&gt;label_1&lt;/strong&gt;, then here is the call to bring the image to the screen&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;...
+self.ui.label_1.setPixmap(QtGui.QPixmap(&amp;quot;:/MPL Toolbar/search_icon.png&amp;quot;))
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and here is what the application will look like !&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/posts/how_to_add_icon_in_qlabel/application_preview.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Multi rows table (QTableWidget)and Qtree interacting together</title>
       <link>/post/table_tree_prototype/</link>
       <pubDate>Tue, 06 Nov 2018 00:00:00 -0500</pubDate>
@@ -1053,73 +1154,6 @@ coming to the facility. We used to try to answer those questions by email. This 
 &lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to create a movie from a stack of images</title>
-      <link>/post/create_movie/</link>
-      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/post/create_movie/</guid>
-      <description>
-
-&lt;p&gt;This guide will show you how to create a simple movie (.avi) from a stack of images using ImageJ.&lt;/p&gt;
-
-&lt;h3 id=&#34;step-1-go-to-the-ornl-cg1d-analysis-computer&#34;&gt;Step 1 - Go to the ORNL CG1D Analysis computer&lt;/h3&gt;
-
-&lt;p&gt;This step is described in detail in our &lt;a href=&#39;https://neutronimaging.pages.ornl.gov/en/tutorial/how_to_access_computer/&#39;&gt;
-Neutron Imaging Tutorial web page - Connect to our computer&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;step-2-start-imagej&#34;&gt;Step 2 - Start ImageJ&lt;/h3&gt;
-
-&lt;p&gt;Navigate to the ImageJ program from the menu&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step1.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and then click &lt;strong&gt;OK&lt;/strong&gt; to close the dialog box that pops up.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;step-3-load-images&#34;&gt;Step 3 - Load Images&lt;/h3&gt;
-
-&lt;p&gt;Click ** File &amp;gt; Import  &amp;gt; Image Sequence &amp;hellip; **&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step3.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Select &lt;strong&gt;folder&lt;/strong&gt; or just &lt;strong&gt;move to folder&lt;/strong&gt; and click &lt;strong&gt;Open&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step4_1.png&#39; /&gt;
-&lt;img src=&#39;/img/posts/create_movie/step4_2.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In the dialog box that shows up, select Use Virtual Stack then click &lt;strong&gt;OK&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step5.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;step-4-preview-images&#34;&gt;Step 4 - Preview Images&lt;/h3&gt;
-
-&lt;p&gt;Feel free to slide through the images to make sure they are correctly sorted (as they are sorted by alphabeticall order).
-If order is wrong, you will need to rename them.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step6.png&#39; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;step-5-make-and-save-movie&#34;&gt;Step 5 - Make and Save Movie&lt;/h3&gt;
-
-&lt;p&gt;Click **File &amp;gt; Save As &amp;gt; AVI &amp;hellip; ** to create the AVI file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step7.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Select the &lt;strong&gt;Frame Rate (fps)&lt;/strong&gt; in the new dialog box, and click &lt;strong&gt;OK&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step8.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Select &lt;em&gt;where&lt;/em&gt; you want to create that file and &lt;em&gt;rename&lt;/em&gt; it if you don&amp;rsquo;t like the default output file name. Click &lt;strong&gt;OK&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step9.png&#39; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A progress bar will display the status of the file creation.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/posts/create_movie/step10.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     
