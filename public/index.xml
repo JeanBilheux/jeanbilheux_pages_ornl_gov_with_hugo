@@ -11,6 +11,36 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>QTableWidget (with 3 rows of headers) and Tree interacting together</title>
+      <link>/project/table_and_tree_prototype/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/table_and_tree_prototype/</guid>
+      <description>&lt;p&gt;For one of my projects, I needed to answer the following requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;table with 3 rows of labels (each row of label is a submenu of the row above)&lt;/li&gt;
+&lt;li&gt;resizing any of the column will resize accordingly the other rows&lt;/li&gt;
+&lt;li&gt;scroll of any of the label rows will scroll the other labels&lt;/li&gt;
+&lt;li&gt;tree on the size will allow to hide/show any of the column&lt;/li&gt;
+&lt;li&gt;hidding any of the tree should automatically hide the leaves under it&lt;/li&gt;
+&lt;li&gt;if hidding all the leaves of a branch, automatically hide the branch parent&lt;/li&gt;
+&lt;li&gt;user should have the option to save and reload a configuration&lt;/li&gt;
+&lt;li&gt;full reset of table is available&lt;/li&gt;
+&lt;li&gt;user can remove configurations he created&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Because QTableWidget does not allow several rows of label, I had to built this feature from scratch.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This project is available on our python notebooks repository (&lt;a href=&#34;https://github.com/neutronimaging/python_notebooks&#34; target=&#34;_blank&#34;&gt;https://github.com/neutronimaging/python_notebooks&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Once installed (with dependencies), start the &lt;strong&gt;test_addie_table.py&lt;/strong&gt; notebook and run the cells.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/table_and_tree_prototype/addie_notebook_preview.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Python logging module 1.0.1</title>
       <link>/post/python_logging/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 -0500</pubDate>
@@ -1356,43 +1386,6 @@ HTML(&amp;quot;&amp;quot;&amp;quot;
 
 &lt;/div&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>Neutron Imaging Official Web Site</title>
-      <link>/project/neutron_imaging_web_site/</link>
-      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/neutron_imaging_web_site/</guid>
-      <description>
-
-&lt;p&gt;Using &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework, I implemented the &lt;a href=&#34;https://neutronimaging.pages.ornl.gov&#34;&gt;
-Oak Ridge National Laboratory Neutron Imaging Web Site&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
-
-&lt;p&gt;Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before
-coming to the facility. We used to try to answer those questions by email. This present some issues:
- * easy to miss some steps
- * previous users coming to the beamline hesitate in contacting us again
- * information we send can easily be out of date&lt;/p&gt;
-
-&lt;p&gt;So we decided to use centralize those information into a web site hosted by the Oak Ridge National Laboratory.&lt;/p&gt;
-
-&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
-
-&lt;p&gt;To implement this web site, I used the following tools:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework to built the web site.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-learn/en&#34;&gt;Hugo learn theme&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm&lt;/a&gt; for the implementation of the web site.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
 </description>
     </item>
     
