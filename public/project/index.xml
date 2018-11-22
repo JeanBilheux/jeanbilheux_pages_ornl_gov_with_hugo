@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Jean Bilheux</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 21 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/project/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>QTableWidget (with 3 rows of headers) and Tree interacting together</title>
+      <link>/project/table_and_tree_prototype/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/table_and_tree_prototype/</guid>
+      <description>&lt;p&gt;For one of my projects, I needed to answer the following requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;table with 3 rows of labels (each row of label is a submenu of the row above)&lt;/li&gt;
+&lt;li&gt;resizing any of the column will resize accordingly the other rows&lt;/li&gt;
+&lt;li&gt;scroll of any of the label rows will scroll the other labels&lt;/li&gt;
+&lt;li&gt;tree on the size will allow to hide/show any of the column&lt;/li&gt;
+&lt;li&gt;hidding any of the tree should automatically hide the leaves under it&lt;/li&gt;
+&lt;li&gt;if hidding all the leaves of a branch, automatically hide the branch parent&lt;/li&gt;
+&lt;li&gt;user should have the option to save and reload a configuration&lt;/li&gt;
+&lt;li&gt;full reset of table is available&lt;/li&gt;
+&lt;li&gt;user can remove configurations he created&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Because QTableWidget does not allow several rows of label, I had to built this feature from scratch.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;This project is available on our python notebooks repository (&lt;a href=&#34;https://github.com/neutronimaging/python_notebooks&#34; target=&#34;_blank&#34;&gt;https://github.com/neutronimaging/python_notebooks&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Once installed (with dependencies), start the &lt;strong&gt;test_addie_table.py&lt;/strong&gt; notebook and run the cells.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/table_and_tree_prototype/addie_notebook_preview.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neutron Imaging Official Web Site</title>
+      <link>/project/neutron_imaging_web_site/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/neutron_imaging_web_site/</guid>
+      <description>
+
+&lt;p&gt;Using &lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework, I implemented the &lt;a href=&#34;https://neutronimaging.pages.ornl.gov&#34;&gt;
+Oak Ridge National Laboratory Neutron Imaging Web Site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+
+&lt;p&gt;Being granted beam time at our beam lines can be intimidating as they are many steps that have to be completed before
+coming to the facility. We used to try to answer those questions by email. This present some issues:
+ * easy to miss some steps
+ * previous users coming to the beamline hesitate in contacting us again
+ * information we send can easily be out of date&lt;/p&gt;
+
+&lt;p&gt;So we decided to use centralize those information into a web site hosted by the Oak Ridge National Laboratory.&lt;/p&gt;
+
+&lt;h2 id=&#34;how&#34;&gt;How?&lt;/h2&gt;
+
+&lt;p&gt;To implement this web site, I used the following tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; framework to built the web site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-theme-learn/en&#34;&gt;Hugo learn theme&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/pycharm/&#34;&gt;PyCharm&lt;/a&gt; for the implementation of the web site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what&#34;&gt;What?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bragg Edge User Interface (iBeatles)</title>
+      <link>/project/ibeatles/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/ibeatles/</guid>
+      <description>&lt;p&gt;Several wavelength-dependent proof-of-concept imaging measurements have been performed at the Spallation Neutron
+Source (SNS) VULCAN and SNAP beam lines. This effort is focused on prototyping imaging software for the future SNS
+VENUS imaging beam line. One of the time- of-flight (TOF) techniques that is of interest to the scientific community
+is the 2-dimensional mapping of phases and average crystalline plane orientation in samples ex-situ, but also during
+applied stresses such as tensile loading and heating. This technique is known as Bragg edge imaging and relies on the
+identification of changes of transmission values, fitting of the edge to measure its displacement, and thus identify
+the shift in lattice parameter due to stresses.&lt;/p&gt;
+
+&lt;p&gt;We are implementing these Bragg edge tools using Python in an effort to provide near real-time feedback during an
+experiment. A Python library was written to quickly calculate the values of Bragg edges (in the strain-free material)
+ for a series of selected crystalline materials. Data in a form of a series of wavelength-dependent radiographs,
+ obtained with an micro-channel-plate (MCP) detector, can be quickly loaded using this PyQt User Interface (UI).&lt;/p&gt;
+
+&lt;p&gt;Data can be normalized, region of sample can be selected and bin size defined. Then the signal for each particular
+bin are automatically fitted. Individual fitting parameters can be displayed as well as the strain mapping of the sample.&lt;/p&gt;
+
+&lt;p&gt;For more infos, please check the &lt;a href=&#34;http://www.mdpi.com/2313-433X/3/4/65/htm&#34; target=&#34;_blank&#34;&gt;Characterization of Crystallographic Structure Using Bragg Edge Neutron Imaging at the Spallation
+Neutron Source, Journal of Imaging, 2017, 3, 65&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen1.png&#39; /&gt;
+During the first step, you load your data and open beams (OB). Thanks to iBeatles, you can compare live your Bragg
+edges with the theoretical values of an element of interest.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen2.png&#39; /&gt;
+You can also display the Bragg edges of one or more region of interest. Moving the region will update live the Bragg edges
+peaks.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen3.png&#39; /&gt;
+The data displayed on the right will come from the single, or multiple files, selected on the left side of the interface.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen4.png&#39; /&gt;
+The Time Spectra file loaded during the first step can be checked.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen5.png&#39; /&gt;
+It&amp;rsquo;s possible to select the range of files to display by playing with the list on the left side of the interface, or
+by doing a direct selection on the bottom right plot.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen6.png&#39; /&gt;
+The fitting step allows you to lock any pixel to prevent the program from changing the previously calculated fitting
+parameters.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen7.png&#39; /&gt;
+All the fitting parameters values are displayed using a color scale background as well. This feature allows the user to
+quickly determine if a parameter value is way off, which mean that it&amp;rsquo;s certainly wrong.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen8.png&#39; /&gt;
+It&amp;rsquo;s possible to define an history of the fitting to perform.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen9.png&#39; /&gt;
+Sometimes, a pre-manipulation of the data is required, such as rotation of the sample. This can be done directly from
+the interface itself.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen10.png&#39; /&gt;
+In this step, the user defines the range of pixels to fit, and the size of each binning block.
+&lt;hr&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;/img/project/ibeatles/screen11.png&#39; /&gt;
+Screenshot showing the ROI tool that allows to select more than one region in order to display and compare the Bragg
+edges from several part of the same sample for example.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jupyter notebooks</title>
+      <link>/project/jupyter_notebooks/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/jupyter_notebooks/</guid>
+      <description>&lt;p&gt;&lt;img src=&#39;/img/project/under-construction.png&#39; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
