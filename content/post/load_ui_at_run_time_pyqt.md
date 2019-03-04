@@ -114,6 +114,116 @@ if __name__ == '__main__':
     main()
 
 ```
+
+### Event handler
+
+In order to take care of the **events** outside the main script, we need to do the following
+ 
+  * we implemented the events in the file *tab1_event_handler.py*
+  
+```python
+import mygui.tab1_event_handler as tab1_event_handler
+```
+ 
+  * we import that file in the main script
+
+```python
+tab1_event_handler.widgets_init_tab1(main_window=self)
+```
+
+  * and call it after displaying the widgets
+
+```python
+# tab1_event_handler.py
+
+def widgets_init_tab1(main_window=None):
+    main_window.tab1_ui.pushButton.clicked.connect(lambda 
+                                                     value=True,
+                                                     main_window=main_window: 
+                                                            button_clicked(
+                                                                value,
+                                                                main_window))
+
+def button_clicked(clicked, main_window):
+     # this ui is in the tab1
+    main_window.tab1_ui.textEdit.setText("button clicked")
+
+    # this shows that we can communicate with the widgets of the main window
+    main_window.ui.lineEdit.setText("tab1 button clicked")
+```
+
+and here the main code looks like now
+
+```python
+#!/usr/bin/env python
+
+import sys
+from importlib import reload
+
+try:
+    import PyQt4
+    import PyQt4.QtCore as QtCore
+    import PyQt4.QtGui as QtGui
+    from PyQt4.QtGui import QMainWindow as QMainWindow
+    from PyQt4.QtGui import QApplication 
+except:
+    import PyQt5
+    import PyQt5.QtCore as QtCore
+    import PyQt5.QtGui as QtGui
+    from PyQt5.uic import loadUi
+    from PyQt5 import QtWidgets
+    from PyQt5.QtWidgets import QMainWindow as QMainWindow
+    from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QPushButton, \
+        QRadioButton, QHBoxLayout
+
+import mygui.interfaces.ui_mainWindow
+
+import mygui.interfaces.tab1
+import mygui.tab1_event_handler as tab1_event_handler  # NEW LINE
+reload(mygui.interfaces.tab1)
+
+import mygui.interfaces.tab2
+reload(mygui.interfaces.tab2)
+
+class MainWindow(QMainWindow, mygui.interfaces.ui_mainWindow.Ui_MainWindow):
+
+    def __init__(self):
+        """ Initialization
+        Parameters
+        ----------
+        """
+        # Base class
+        QMainWindow.__init__(self)
+
+        # Initialize the UI widgets
+        self.ui = mygui.interfaces.ui_mainWindow.Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        # import tab1
+        self.tab1_widget = QtWidgets.QWidget()
+        self.tab1_ui = mygui.interfaces.tab1.Ui_MyTab1()
+        self.tab1_ui.setupUi(self.tab1_widget)
+        self.ui.tabWidget.insertTab(0, self.tab1_widget, "tab1")
+
+        # import tab2
+        self.tab2_widget = QtWidgets.QWidget()
+        ui = mygui.interfaces.tab2.Ui_Form()
+        ui.setupUi(self.tab2_widget)
+        self.ui.tabWidget.insertTab(1, self.tab2_widget, "tab2")
+
+        tab1_event_handler.widgets_init_tab1(main_window=self)  # NEW LINE
+
+
+def main():
+    app = QApplication(sys.argv)
+    application = MainWindow()
+    application.show()
+    app.exec_()
+
+if __name__ == '__main__':
+    main()
+```
+
 ### Source
 
  * [Answer replied in PyQt mailing list](https://stackoverflow.com/questions/36714078/pyqt4-how-to-make-icon-bigger-than-qpushbutton-pixmap-buttons)
