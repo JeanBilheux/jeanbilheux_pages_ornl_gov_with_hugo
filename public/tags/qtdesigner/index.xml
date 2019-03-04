@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QTDesigner on Jean Bilheux</title>
+    <link>/tags/qtdesigner/</link>
+    <description>Recent content in QTDesigner on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 04 Mar 2019 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/qtdesigner/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to load ui at run time in PyQt application.</title>
+      <link>/post/load_ui_at_run_time_pyqt/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/load_ui_at_run_time_pyqt/</guid>
+      <description>In this post, I will show how you can load at run time a couple of QWidget created in QTDesigner. Each of those QWidget will be placed in their own tab.
+The final application will look like this
+QTDesigner work Using QTDesigner, I created:
+ 1 QWidget ui named tab1.ui 1 QWidget ui named tab2.ui 1 QMainWindow ui named ui_mainWindow.ui  tab1.ui
+tab2.ui
+ui_mainWindow.ui
+Those files are saved in the same folder designer</description>
+    </item>
+    
+  </channel>
+</rss>

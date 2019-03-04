@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>widget on Jean Bilheux</title>
+    <link>/tags/widget/</link>
+    <description>Recent content in widget on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/tags/widget/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Right Click Menu in QTable</title>
+      <link>/post/right_click_menu_in_pyqt_table/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/post/right_click_menu_in_pyqt_table/</guid>
+      <description>How to get a right click menu from a QTable in PyQt
+To be able to have a right click menu in a QTable (PyQt), you need to follow the following few steps
+Turn on Custom Context Menu In QtDesigner, and in the property editor select in the contextMenuPolicy the option CustomContextMenu.
+Connect Custom Context Menu Signal Catch Signal in Main Code ... def h3_table_right_click(self, position): o_h3_table = H3TableHandler(parent=self) o_h3_table.</description>
+    </item>
+    
+    <item>
+      <title>How to format the notebook widgets</title>
+      <link>/post/how_to_format_widget_in_notebook/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_format_widget_in_notebook/</guid>
+      <description>When working with widgets inside a notebook, the default style looks like this
+In order to change its style, it&amp;rsquo;s possible to modify the CSS style sheet as followed
+from IPython.core.display import HTML HTML(&amp;quot;&amp;quot;&amp;quot; &amp;lt;style&amp;gt; .mytext &amp;gt; .widget-label { font-style: strong; color: black; font-size: 30px; } .mytext &amp;gt; input[type=&amp;quot;text&amp;quot;] { font-size: 20px; color: green; } &amp;lt;/style&amp;gt; &amp;quot;&amp;quot;&amp;quot;)  And this will give a new style as shown here
+Thanks to Kynan for the following post who helped me figuring out the solution</description>
+    </item>
+    
+    <item>
+      <title>How to add a title to a matplotlib figure inside a notebook</title>
+      <link>/post/how_to_add_title_to_matplotlib_figure/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_add_title_to_matplotlib_figure/</guid>
+      <description>By default, matplotlib only provides an increment index to the figure title as shown here
+_file_name = _files[index] fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(10,5)) #plt.title(os.path.basename(_files[index])) cax0 = ax0.imshow(_data[index], cmap=&#39;viridis&#39;, interpolation=None) ax0.set_title(&amp;quot;Before Correction&amp;quot;) _ = fig.colorbar(cax0, ax=ax0) # colorbar cax1 = ax1.imshow(_clean_data[index], cmap=&#39;viridis&#39;, interpolation=None) ax1.set_title(&amp;quot;After Correction&amp;quot;) _ = fig.colorbar(cax1, ax=ax1) # colorbar fig.tight_layout()  In order to provide a title to this plot, simply add a value to the flag num in plt.</description>
+    </item>
+    
+    <item>
+      <title>How to trigger only 1 notebook widget dropdown event</title>
+      <link>/post/how_to_trigger_single_notebook_widget_event/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_trigger_single_notebook_widget_event/</guid>
+      <description>I’m working on a notebook that is supposed to clean images. Nothing fancy here, just replacing the negative, inf and NaN values by either 0 or NaN.
+This can be done interactively using the following widgets.
+But my problem is that each time a selection inside one of the dropdown widgets is changed, it triggers 5 events. So I added the following snipet of code to cheat the system and only work with the first event triggered.</description>
+    </item>
+    
+    <item>
+      <title>How to turn off warnings in the notebooks</title>
+      <link>/post/how_to_remove_notebook_warning/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/how_to_remove_notebook_warning/</guid>
+      <description>If you are annoyed by warning messages (see top picture), Just add the following command at the top of your notebook
+import warnings warnings.filterwarnings(‘ignore’)  </description>
+    </item>
+    
+  </channel>
+</rss>

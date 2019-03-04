@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>logging on Jean Bilheux</title>
+    <link>/tags/logging/</link>
+    <description>Recent content in logging on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/logging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python logging module 1.0.1</title>
+      <link>/post/python_logging/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/python_logging/</guid>
+      <description>This tutorial is a short version of the following full tutorial
+Quick Demo First, we need to import the library to be able to use it
+import logging  Then to use it
+import logging logging.debug(&#39;This is a debug message&#39;) logging.info(&#39;This is an info message&#39;) logging.warning(&#39;This is a warning message&#39;) logging.error(&#39;This is an error message&#39;) logging.critical(&#39;This is a critical message&#39;) def test_me(): logging.debug(&#39;This is a debug message&#39;) logging.info(&#39;This is an info message&#39;) logging.</description>
+    </item>
+    
+  </channel>
+</rss>

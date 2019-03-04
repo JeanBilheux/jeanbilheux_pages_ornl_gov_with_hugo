@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Jean Bilheux</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Content tagged as &#39;Academic&#39;</title>
+      <link>/tags/academic/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/academic/</guid>
+      <description>Here is a list of all the content that has been tagged as academic.</description>
+    </item>
+    
+    <item>
+      <title>GUI</title>
+      <link>/tags/gui/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QMenu</title>
+      <link>/tags/qmenu/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/qmenu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QPushButton</title>
+      <link>/tags/qpushbutton/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/qpushbutton/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QTDesigner</title>
+      <link>/tags/qtdesigner/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/qtdesigner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QTableWidget</title>
+      <link>/tags/qtablewidget/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/qtablewidget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QTree</title>
+      <link>/tags/qtree/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/qtree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>braggedge</title>
+      <link>/tags/braggedge/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/braggedge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>class</title>
+      <link>/tags/class/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conda</title>
+      <link>/tags/conda/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/conda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>documentation</title>
+      <link>/tags/documentation/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fits</title>
+      <link>/tags/fits/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/fits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/tags/git/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/tags/github/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>/tags/html/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imagej</title>
+      <link>/tags/imagej/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/imagej/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imaging</title>
+      <link>/tags/imaging/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/imaging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>int</title>
+      <link>/tags/int/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/int/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jupyter</title>
+      <link>/tags/jupyter/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/jupyter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>library</title>
+      <link>/tags/library/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logging</title>
+      <link>/tags/logging/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/logging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matplotlib</title>
+      <link>/tags/matplotlib/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>movie</title>
+      <link>/tags/movie/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neunorm</title>
+      <link>/tags/neunorm/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/neunorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>normalization</title>
+      <link>/tags/normalization/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/normalization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notebook</title>
+      <link>/tags/notebook/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/notebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notebooks</title>
+      <link>/tags/notebooks/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/notebooks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>numpy</title>
+      <link>/tags/numpy/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pip</title>
+      <link>/tags/pip/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/pip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>property</title>
+      <link>/tags/property/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/property/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyqt</title>
+      <link>/tags/pyqt/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/pyqt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pyqtgraph</title>
+      <link>/tags/pyqtgraph/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/pyqtgraph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytest</title>
+      <link>/tags/pytest/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/pytest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sphinx</title>
+      <link>/tags/sphinx/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/sphinx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tiff</title>
+      <link>/tags/tiff/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/tiff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ui</title>
+      <link>/tags/ui/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/ui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unittest</title>
+      <link>/tags/unittest/</link>
+      <pubDate>Tue, 09 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/unittest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>users</title>
+      <link>/tags/users/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/users/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>widget</title>
+      <link>/tags/widget/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/widget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>widgets</title>
+      <link>/tags/widgets/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/widgets/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

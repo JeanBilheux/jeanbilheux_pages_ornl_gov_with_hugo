@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>neunorm on Jean Bilheux</title>
+    <link>/tags/neunorm/</link>
+    <description>Recent content in neunorm on Jean Bilheux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 09 Mar 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/neunorm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gamma Filtering</title>
+      <link>/post/gamma_filtering_method/</link>
+      <pubDate>Fri, 09 Mar 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/post/gamma_filtering_method/</guid>
+      <description>Introduction When working with neutorn imaging files, one of the first thing we need to do is removing the gamma spots. Those spots are pixel that recorded gammas strikes, not neutrons strikes.
+To do so, we are going to use the convolve library from scipy.
+Initialize Fake Data Set import numpy as np from scipy.ndimage import convolve # let&#39;s create a 10x10 random array of values between 0 and 1 my_array = np.</description>
+    </item>
+    
+  </channel>
+</rss>
