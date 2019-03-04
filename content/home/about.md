@@ -12,13 +12,14 @@ weight = 5
   interests = [
     "jupyter notebooks",
     "python",
-    "neutron imaging"
+    "neutron imaging",
+    "PyQt graphical interface design",
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
   course = "PhD In Physics"
-  institution = "Université of Versailles-Saint-Quentin, France"
+  institution = "University of Versailles-Saint-Quentin-en-Yvelines, France"
   year = 2003
 
 +++
