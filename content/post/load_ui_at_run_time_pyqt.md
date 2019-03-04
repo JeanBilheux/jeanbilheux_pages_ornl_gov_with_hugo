@@ -227,3 +227,4 @@ if __name__ == '__main__':
 ### Source
 
  * [Answer replied in PyQt mailing list](https://stackoverflow.com/questions/36714078/pyqt4-how-to-make-icon-bigger-than-qpushbutton-pixmap-buttons)
+ * [git repo](https://github.com/JeanBilheux/pyqt_application_with_separated_ui_tabs)
